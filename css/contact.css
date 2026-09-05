@@ -1,0 +1,196 @@
+/* ═══════════════════════════════════════════════
+   CONTACT
+   ═══════════════════════════════════════════════ */
+
+/* ─── CONTACT ─── */
+.ct-sec{position:relative;overflow:hidden}
+.ct-page{position:relative;z-index:1;max-width:1240px;margin:auto;padding:56px 40px 64px}
+
+.ct-watermark{position:absolute;left:0;right:0;bottom:9%;z-index:0;
+  text-align:center;pointer-events:none;user-select:none;
+  font-size:clamp(96px,18vw,260px);font-weight:900;letter-spacing:-.055em;
+  line-height:.78;color:#221c52;-webkit-text-fill-color:#221c52}
+
+.ct-head{display:flex;align-items:center;justify-content:space-between;
+  gap:34px;flex-wrap:wrap;margin-bottom:24px}
+.ct-h1{font-size:40px;letter-spacing:-.045em;margin:0;color:#fff;flex:0 0 auto}
+.ct-sub{color:#fff;font-size:13.5px;margin:0;text-align:right;line-height:1.6}
+.ct-sub b{color:#fff;font-weight:700}
+.ct-sub .ct-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok,#25d4c2);
+  margin-right:6px;vertical-align:1px;position:relative}
+.ct-sub .ct-dot::after{content:'';position:absolute;inset:0;border-radius:50%;
+  border:1.5px solid var(--ok,#25d4c2);animation:ctPing 2s ease-out infinite}
+@keyframes ctPing{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.8);opacity:0}}
+
+/* all four cards are the same width */
+.ct-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.ct-ch{opacity:0;transform:translateY(22px) scale(.97);
+  position:relative;display:flex;align-items:center;justify-content:center;gap:13px;
+  padding:14px 16px;border-radius:14px;background:#0d0b19;
+  border:1px solid rgba(155,124,255,.16);color:inherit;text-decoration:none;cursor:pointer;
+  font-family:inherit;text-align:left;overflow:hidden;
+  transition:opacity .6s ease,transform .68s cubic-bezier(.22,1,.36,1),
+    border-color .3s,background .3s,box-shadow .3s}
+/* revealed state — .ct-in is added by the IntersectionObserver */
+.ct-row.ct-in .ct-ch{opacity:1;transform:none}
+.ct-row.ct-in .ct-ch:nth-child(1){transition-delay:.05s}
+.ct-row.ct-in .ct-ch:nth-child(2){transition-delay:.15s}
+.ct-row.ct-in .ct-ch:nth-child(3){transition-delay:.25s}
+.ct-row.ct-in .ct-ch:nth-child(4){transition-delay:.35s}
+/* the form follows the cards in */
+.ct-form{opacity:0;transform:translateY(24px)}
+.ct-form.ct-in{opacity:1;transform:none;
+  transition:opacity .65s ease .42s,transform .75s cubic-bezier(.22,1,.36,1) .42s}
+/* HOVER: the border draws itself around the perimeter, icon pops, card lifts.
+   pathLength=100 on the rect makes the dash maths independent of card size. */
+.ct-draw{position:absolute;inset:0;width:100%;height:100%;overflow:visible;
+  pointer-events:none;z-index:2}
+.ct-draw rect{x:.75px;y:.75px;width:calc(100% - 1.5px);height:calc(100% - 1.5px);rx:13.5px;
+  fill:none;stroke:url(#ctChGrad);stroke-width:1.5;stroke-linecap:round;
+  stroke-dasharray:100;stroke-dashoffset:100;
+  transition:stroke-dashoffset .78s cubic-bezier(.5,0,.3,1)}
+.ct-ch:hover .ct-draw rect{stroke-dashoffset:0}
+.ct-ch:hover{background:#0f0d1d;transform:translateY(-3px)}
+
+.ct-ch .ct-ico{position:relative;z-index:1;width:36px;height:36px;flex:0 0 auto;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(155,124,255,.10);border:1px solid rgba(155,124,255,.20);
+  transition:background .3s,border-color .3s,transform .42s cubic-bezier(.34,1.56,.64,1)}
+.ct-ch:hover .ct-ico{background:rgba(155,124,255,.24);border-color:rgba(155,124,255,.6);
+  box-shadow:0 0 20px -6px rgba(155,124,255,.6);
+  transform:translateY(-2px) rotate(-6deg) scale(1.07)}
+.ct-ch .ct-ico svg{width:17px;height:17px;fill:none;stroke:#9b7cff;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.ct-ch .ct-txt{min-width:0;flex:0 1 auto;position:relative;z-index:1}
+.ct-ch .ct-k{display:block;font-size:9.5px;letter-spacing:1.6px;font-weight:700;
+  color:#fff;opacity:.55;margin-bottom:2px;transition:opacity .3s,color .3s}
+.ct-ch:hover .ct-k{opacity:1}
+.ct-ch .ct-v{display:block;font-size:12.5px;color:#fff;
+  overflow-wrap:anywhere;transition:color .3s}
+.ct-ch:hover .ct-v{color:#fff}
+.ct-ch .ct-v.ct-sm{font-size:12px;letter-spacing:-.15px}
+
+/* absolute so the hidden glyph does not occupy layout width — otherwise the
+   icon+text group sits ~13px left of centre while the glyph is invisible */
+.ct-ch .ct-act{position:absolute;right:12px;top:50%;z-index:1;width:16px;height:16px;
+  display:inline-flex;align-items:center;justify-content:center;
+  opacity:0;transform:translateY(-50%) translateX(7px);
+  transition:opacity .34s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
+.ct-ch:hover .ct-act{opacity:1;transform:translateY(-50%)}
+.ct-ch .ct-act svg{width:16px;height:16px;fill:none;stroke:#9b7cff;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.ct-ch .ct-copied{position:absolute;inset:0;border-radius:14px;display:flex;align-items:center;
+  justify-content:center;gap:7px;background:#0f1a1c;color:var(--ok,#25d4c2);
+  font-size:12.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .18s;z-index:3}
+.ct-ch.ct-done .ct-copied{opacity:1}
+
+.ct-form{position:relative;z-index:1;border:1px solid rgba(155,124,255,.16);border-radius:16px;
+  background:rgba(13,11,25,.60);padding:22px 24px}
+.ct-form input,.ct-form textarea{backdrop-filter:none}
+.ct-three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.ct-f{position:relative}
+.ct-lrow{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px}
+.ct-form label{display:block;font-size:10px;letter-spacing:1.4px;font-weight:700;
+  color:#fff;opacity:.6;margin-bottom:7px}
+.ct-lrow label{margin-bottom:0}
+.ct-count{font-size:10px;color:#fff;opacity:.55;font-variant-numeric:tabular-nums}
+
+.ct-form input,.ct-form textarea{width:100%;background:#100e1c;color:#eeeafa;
+  border:1px solid rgba(155,124,255,.14);border-radius:10px;
+  padding:11px 13px;font-size:13.5px;font-family:inherit;line-height:1.55;
+  transition:border-color .25s,box-shadow .25s,background .25s}
+.ct-form input::placeholder,.ct-form textarea::placeholder{color:#4e4a63}
+.ct-form input:focus,.ct-form textarea:focus{outline:none;background:#131126;
+  border-color:rgba(155,124,255,.55);box-shadow:0 0 0 3px rgba(155,124,255,.10)}
+
+.ct-form textarea{
+  height:calc(1.55em * 3 + 22px);
+  resize:none;overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:rgba(155,124,255,.5) transparent;
+}
+.ct-form textarea::-webkit-scrollbar{width:6px}
+.ct-form textarea::-webkit-scrollbar-track{background:transparent}
+.ct-form textarea::-webkit-scrollbar-thumb{background:rgba(155,124,255,.42);border-radius:3px}
+.ct-form textarea::-webkit-scrollbar-thumb:hover{background:rgba(155,124,255,.7)}
+
+.ct-f.ct-bad input,.ct-f.ct-bad textarea{border-color:rgba(255,107,125,.6)}
+.ct-f .ct-msg{font-size:10.5px;color:#ff6b7d;margin-top:5px;display:none}
+.ct-f.ct-bad .ct-msg{display:block}
+.ct-mfield{margin-bottom:16px}
+
+.ct-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ct-send{display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(100deg,#9b7cff,#7d5cf0);
+  color:#0b0715;font-size:13.5px;font-weight:700;font-family:inherit;
+  border:0;border-radius:10px;padding:11px 22px;cursor:pointer;
+  box-shadow:0 8px 22px -12px rgba(155,124,255,.85);
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),filter .25s}
+.ct-send:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.ct-send:active{transform:translateY(1px)}
+.ct-send svg{width:15px;height:15px;fill:none;stroke:#0b0715;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.ct-send:hover svg{transform:translateX(3px)}
+.ct-send[data-state="sending"]{pointer-events:none;filter:saturate(.7)}
+.ct-send .ct-spin{display:none;width:13px;height:13px;border-radius:50%;
+  border:2px solid rgba(11,7,21,.3);border-top-color:#0b0715;animation:ctSpin .7s linear infinite}
+.ct-send[data-state="sending"] .ct-spin{display:block}
+.ct-send[data-state="sending"] .ct-arrow{display:none}
+@keyframes ctSpin{to{transform:rotate(360deg)}}
+.ct-reply{font-size:11.5px;color:#fff;opacity:.65}
+
+@media(max-width:980px){
+  .ct-row{grid-template-columns:repeat(2,1fr)}
+  .ct-ch .ct-v.ct-sm{font-size:12.5px;letter-spacing:0}
+  .ct-three{grid-template-columns:1fr;gap:14px}
+}
+@media(max-width:640px){
+  .ct-page{padding:44px 20px}
+  .ct-h1{font-size:31px}
+  .ct-head{flex-direction:column;align-items:flex-start;gap:8px}
+  .ct-sub{text-align:left}
+  .ct-row{grid-template-columns:1fr}
+  .ct-form{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ct-sub .ct-dot::after{animation:none}
+  .ct-ch,.ct-ch .ct-ico,.ct-ch .ct-act,.ct-send,.ct-send svg{transition:none}
+  .ct-ch,.ct-form{opacity:1 !important;transform:none !important}
+  .ct-draw rect{transition:none}
+}
+
+/* ─── SECTION BADGE ACCENT ─── */
+#contact  .sec-badge{color:var(--green); border-color:var(--green-b);background:var(--green-g)}
+
+/* ─── RESPONSIVE ─── */
+/* an equal column is 273px at 4-across, and the full URLs only fit on one line
+   there with slightly tighter padding and value type — otherwise they wrap */
+@media(min-width:1201px){
+  .ct-ch{padding:14px 13px;gap:10px}
+  .ct-ch .ct-v,.ct-ch .ct-v.ct-sm{font-size:11.5px;letter-spacing:-.2px}
+}
+/* once the cards are 2-up or 1-up the 1.3fr email column stops making sense */
+/* 4 across only holds the long email while the cards are wide */
+@media(max-width:1200px){
+  .ct-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .ct-three{grid-template-columns:1fr;gap:14px}
+}
+@media(max-width:640px){
+  .ct-row{grid-template-columns:1fr}
+}
+/* the email is the longest string on the site — wrap it rather than ellipsis it */
+@media(max-width:1200px){
+  .ct-ch .ct-v,.ct-ch .ct-v.ct-sm{white-space:normal;overflow-wrap:anywhere;text-overflow:clip}
+}
+/* touch target */
+@media(max-width:1023px){
+  .ct-send{min-height:44px}
+}
+/* keep the 3-line textarea usable on a phone */
+@media(max-width:640px){
+  .ct-form textarea{height:calc(1.55em * 4 + 22px)}
+  .ct-page{padding:44px 20px 52px}
+}

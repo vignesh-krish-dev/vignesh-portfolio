@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Vignesh K — Junior Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+
+  <!-- ═══════ SECTION STYLESHEETS — load order is the cascade order, keep it ═══════ -->
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/nav.css"/>
+  <link rel="stylesheet" href="css/buttons.css"/>
+  <link rel="stylesheet" href="css/hero.css"/>
+  <link rel="stylesheet" href="css/about.css"/>
+  <link rel="stylesheet" href="css/experience.css"/>
+  <link rel="stylesheet" href="css/skills.css"/>
+  <link rel="stylesheet" href="css/projects.css"/>
+  <link rel="stylesheet" href="css/certifications.css"/>
+  <link rel="stylesheet" href="css/education.css"/>
+  <link rel="stylesheet" href="css/contact.css"/>
+  <link rel="stylesheet" href="css/stats.css"/>
+  <link rel="stylesheet" href="css/footer.css"/>
+  <!-- reveal.css must stay LAST: .reveal overrides section-level transitions -->
+  <link rel="stylesheet" href="css/reveal.css"/>
+</head>
+<body>
+
+<canvas id="cvs"></canvas>
+
+<!-- ═══════ NAV ═══════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+      <div class="nav-social">
+        <a class="nav-soc nav-soc-li" href="https://linkedin.com/in/vignesh-krish-dev"
+           target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="3"/>
+            <path d="M7.5 10.5V17M7.5 7.4v.1"/>
+            <path d="M12 17v-4a2.5 2.5 0 0 1 5 0v4"/>
+            <path d="M12 10.5V17"/>
+          </svg>
+        </a>
+        <a class="nav-soc nav-soc-gh" href="https://github.com/vignesh-krish-dev"
+           target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 19.5c-4 1.2-4-2.2-5.6-2.6M15 21.5v-3.4a2.9 2.9 0 0 0-.8-2.3c2.7-.3 5.3-1.3 5.3-5.9a4.6 4.6 0 0 0-1.2-3.1 4.2 4.2 0 0 0-.1-3.2s-1.4-.4-4.4 1.6a11 11 0 0 0-5.6 0C5.2 3.2 3.8 3.6 3.8 3.6a4.2 4.2 0 0 0-.1 3.2 4.6 4.6 0 0 0-1.2 3.2c0 4.5 2.6 5.5 5.3 5.9a2.9 2.9 0 0 0-.8 2.2v3.4"/>
+          </svg>
+        </a>
+      </div>
+      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+
+    <div class="hero-left" id="heroLeft">
+      <p class="hero-greeting">Hi there, I'm</p>
+      <h1 class="hero-name">Vignesh K</h1>
+      <div class="hero-role"><span class="hr-rotator" id="heroRoleRotator"><span class="hr-list" id="heroRoleList"></span></span></div>
+      <p class="hero-desc">
+        I build software, explore new technologies, and enjoy solving problems that require more than a straightforward solution.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary btn-fill"><span>Get in Touch</span> <i class="bi bi-arrow-right"></i></a>
+        <a href="resume.pdf" class="btn-outline btn-draw" download><i class="bi bi-file-earmark-person"></i> <span>Download CV</span></a>
+      </div>
+    </div>
+
+    <div class="hero-right" id="heroRight">
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="img/vignesh.png" alt="Vignesh K"/>
+        <div class="photo-label">
+          <span class="photo-name">Vignesh K</span>
+          <span class="photo-title">Junior Software Engineer</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.hero-content -->
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="sec" id="about">
+  <div class="container">
+    <h2 class="sec-title reveal">About <span class="about-accent">Me</span></h2>
+    <p class="about-lead reveal">I'm someone who genuinely enjoys <strong>figuring things out</strong>.</p>
+
+    <div class="about-bio">
+      <div class="about-col reveal" style="--c:var(--teal)"><p>I like taking something unfamiliar, understanding how it works, experimenting with it, and gradually turning confusion into something that makes sense. That curiosity is what keeps software development interesting to me.</p></div>
+      <div class="about-col reveal" style="--c:var(--pl)"><p>I enjoy the process as much as the result — starting with an idea, trying things, running into problems, debugging them, and eventually seeing everything come together.</p></div>
+      <div class="about-col reveal" style="--c:var(--violet)"><p>I'm not someone who wants to simply make things work and move on. I like asking why it works, why it doesn't, and whether there's a better way to do it.</p></div>
+    </div>
+
+    <div class="about-qrule"></div>
+    <div class="about-quote reveal">
+      <blockquote>"The best part of building software isn't just the result — it's <em>everything you discover along the way</em>."</blockquote>
+      <div class="about-by">VIGNESH K</div>
+    </div>
+
+    <div class="about-win reveal">
+      <div class="about-win-chrome">
+        <i style="background:#f2635c"></i><i style="background:#efc44f"></i><i class="about-live" style="background:#4ade80"></i>
+        <span class="about-win-name">vignesh@portfolio: ~/about</span>
+      </div>
+      <div class="about-win-body">
+        <div class="about-tile">
+          <span class="about-tile-k">FOCUS</span>
+          <div class="about-swap">
+            <span class="about-s1"><span class="about-v">Backend · C++ · Python</span></span>
+            <span class="about-s2"><span class="about-v">Backend · C++ · Python</span><span class="about-extra">Systems &amp; performance</span></span>
+          </div>
+        </div>
+        <div class="about-tile">
+          <span class="about-tile-k">EXPERIENCE</span>
+          <div class="about-swap">
+            <span class="about-s1"><span class="about-v">1+ year</span></span>
+            <span class="about-s2"><span class="about-v">1+ year</span><span class="about-extra">Professional, shipping software</span></span>
+          </div>
+        </div>
+        <div class="about-tile">
+          <span class="about-tile-k">BASED IN</span>
+          <div class="about-swap">
+            <span class="about-s1"><span class="about-v">Coimbatore, Tamil Nadu</span></span>
+            <span class="about-s2"><span class="about-v">Coimbatore, Tamil Nadu</span><span class="about-extra">Open to relocation</span></span>
+          </div>
+        </div>
+        <div class="about-tile">
+          <span class="about-tile-k">EMAIL</span>
+          <div class="about-swap">
+            <span class="about-s1"><span class="about-v about-sm">vigneshkrishnan093@gmail.com</span></span>
+            <span class="about-s2"><span class="about-v about-sm">vigneshkrishnan093@gmail.com</span><span class="about-extra">Usually reply same day</span></span>
+          </div>
+        </div>
+        <div class="about-tile">
+          <span class="about-tile-k">STATUS</span>
+          <div class="about-swap">
+            <span class="about-s1"><span class="about-stat"><span class="about-stat-dot"></span>Open to opportunities</span></span>
+            <span class="about-s2"><span class="about-stat"><span class="about-stat-dot"></span>Open to opportunities</span><span class="about-extra">Frontend &amp; backend roles</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ EXPERIENCE ═══════ -->
+<section class="sec" id="experience">
+  <div class="container">
+    <h2 class="sec-title reveal">Professional Experience</h2>
+    <p class="sec-sub reveal">1 year of full-time engineering experience building real-world enterprise solutions at LiveMedica Solutions.</p>
+
+    <!-- Company Banner -->
+    <div class="company-banner reveal">
+      <div class="company-logo-box">LM</div>
+      <div class="company-details">
+        <div class="company-role-title">Junior Software Engineer</div>
+        <div class="company-name-line">LiveMedica Solutions</div>
+        <div class="company-meta">
+          <span><i class="bi bi-geo-alt-fill"></i> Chennai, Tamil Nadu</span>
+          <span><i class="bi bi-calendar3"></i> July 2025 – August 2026 · 1 Year</span>
+        </div>
+      </div>
+      <div class="company-badge-pill">Full-Time</div>
+    </div>
+
+    <!-- 4 Work Items — rendered from the PROJECTS data array in js/experience.js -->
+    <div class="timeline" id="tl"></div>
+  </div>
+</section>
+
+<!-- ═══════ EXPERIENCE DETAIL MODAL (centered overlay, independent of scroll position) ═══════ -->
+<div class="tl-modal" id="tlModal">
+  <div class="tl-modal-panel">
+    <button class="tl-modal-close" id="tlModalClose" aria-label="Close details"><i class="bi bi-x-lg"></i></button>
+    <div class="tl-modal-header">
+      <div class="tl-icon" id="tlModalIcon"></div>
+      <h3 class="work-title" id="tlModalTitle"></h3>
+    </div>
+    <div class="tl-scrollwrap" id="tlModalWrap">
+      <div class="tl-scroller" id="tlModalScroll">
+        <div class="tl-detail" id="tlModalDetail"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ SKILLS ═══════ -->
+<section class="sk-hero" id="skills">
+  <canvas class="sk-bg" id="skBinCv"></canvas>
+  <div class="sk-dim"></div>
+
+  <div class="sk-wrap">
+    <h2 class="sk-heading">Technical Skills</h2>
+
+    <div class="sk-top">
+      <div class="sk-left">
+        <h3 class="sk-label">PROGRAMMING LANGUAGES</h3>
+        <div class="sk-langs" id="skLangs"></div>
+      </div>
+
+      <div class="sk-gridwrap">
+        <div class="sk-gh"><span class="sk-gh-t">TECH STACK</span><span class="sk-gh-n sk-mono" id="skGcount"></span></div>
+        <div class="sk-igrid" id="skIgrid"></div>
+      </div>
+    </div>
+
+    <div class="sk-mqbox">
+      <div class="sk-mqhead">
+        <span class="sk-mqhead-t">EVERYTHING I WORK WITH</span>
+        <span class="sk-mqhead-hint sk-mono">HOVER TO PAUSE</span>
+      </div>
+      <div class="sk-viewport" id="skVp"><div class="sk-track2" id="skTrack"></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ PROJECTS ═══════ -->
+<section class="sec sec-alt" id="projects">
+  <div class="container">
+    <h2 class="sec-title reveal">Personal Projects</h2>
+    <p class="sec-sub reveal">Full-stack and frontend projects built with real users and real problems in mind.</p>
+    <div class="proj-grid">
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb pt-1">
+          <img class="proj-thumb-img" src="img/thumb-devinsight.jpg" alt="DevInsight live app preview" loading="lazy"/>
+          <span class="proj-type-badge">Full-Stack · AI</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-name">DevInsight — AI Developer Career Analyzer</h3>
+          <p class="proj-desc">An AI-powered career analysis platform that evaluates resumes, GitHub profiles, and portfolios to generate personalized insights, identify strengths and improvement areas, highlight potential gaps, and provide actionable guidance for developers.</p>
+          <div class="proj-stack">
+            <img src="https://img.icons8.com/?size=50&id=13441&format=png" alt="Python"/>
+            <span class="stack-text">React</span>
+            <span class="stack-text">FastAPI</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://devinsight-gamma.vercel.app" target="_blank" class="proj-link"><span>View Live</span> <i class="bi bi-arrow-up-right"></i></a>
+            <a href="https://github.com/vignesh-krish-dev/devinsight" target="_blank" class="proj-link-ghost"><i class="bi bi-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb pt-2">
+          <img class="proj-thumb-img" src="img/thumb-kickart.jpg" alt="KickArt live app preview" loading="lazy"/>
+          <span class="proj-type-badge">Full-Stack</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-name">KickArt — E-Commerce Shoe Store</h3>
+          <p class="proj-desc">An e-commerce platform for discovering and purchasing shoes, featuring a dynamic product catalog, user authentication, product browsing, shopping workflows, CRUD operations, and a responsive interface designed for an engaging online shopping experience.</p>
+          <div class="proj-stack">
+            <img src="https://img.icons8.com/?size=50&id=20909&format=png" alt="HTML"/>
+            <img src="https://img.icons8.com/?size=50&id=laVIsJnTtYoj&format=png" alt="JS"/>
+            <img src="https://img.icons8.com/?size=50&id=qc3TyHJPxEoH&format=png" alt="Django"/>
+            <img src="https://img.icons8.com/?size=50&id=cdYUlRaag9G9&format=png" alt="SQLite"/>
+          </div>
+          <div class="proj-links">
+            <a href="https://vigneshkrish.pythonanywhere.com/" target="_blank" class="proj-link"><span>View Live</span> <i class="bi bi-arrow-up-right"></i></a>
+            <a href="https://github.com/vignesh-krish-dev" target="_blank" class="proj-link-ghost"><i class="bi bi-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb pt-3">
+          <img class="proj-thumb-img" src="img/thumb-youtube.jpg" alt="YouTube Clone live app preview" loading="lazy"/>
+          <span class="proj-type-badge">Frontend</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-name">YouTube Clone</h3>
+          <p class="proj-desc">A responsive video-streaming interface inspired by YouTube, featuring video discovery, search and navigation, dynamic content rendering, category-based browsing, interactive UI components, and a familiar viewing experience across different screen sizes.</p>
+          <div class="proj-stack">
+            <img src="https://img.icons8.com/?size=50&id=20909&format=png" alt="HTML"/>
+            <img src="https://img.icons8.com/?size=50&id=21278&format=png" alt="CSS"/>
+            <img src="https://img.icons8.com/?size=50&id=laVIsJnTtYoj&format=png" alt="JS"/>
+          </div>
+          <div class="proj-links">
+            <a href="https://vignesh-krish-dev.github.io/youtube-clone/" target="_blank" class="proj-link"><span>View Live</span> <i class="bi bi-arrow-up-right"></i></a>
+            <a href="https://github.com/vignesh-krish-dev" target="_blank" class="proj-link-ghost"><i class="bi bi-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ CERTIFICATIONS ═══════ -->
+<section class="sec" id="certifications">
+  <div class="container">
+    <h2 class="sec-title reveal">Certifications</h2>
+    <p class="sec-sub reveal">My top 4 certifications that back up the technical stack.</p>
+    <div class="cert-grid">
+      <div class="cert-card reveal" tabindex="0" role="button" aria-label="Preview certificate: Full Stack Development with Python" data-full="img/py.png" data-name="Full Stack Development with Python" data-org="Xplore IT Corp">
+        <div class="cert-num">01</div>
+        <div class="cert-img-wrap"><img src="img/py-thumb.jpg" alt="Full Stack Development with Python" loading="lazy"/></div>
+        <div class="cert-info">
+          <div class="cert-name">Full Stack Development with Python</div>
+          <div class="cert-org">Xplore IT Corp</div>
+        </div>
+      </div>
+      <div class="cert-card reveal" tabindex="0" role="button" aria-label="Preview certificate: Artificial Intelligence Fundamentals" data-full="img/ibm.png" data-name="Artificial Intelligence Fundamentals" data-org="IBM SkillsBuild · June 2026">
+        <div class="cert-num">02</div>
+        <div class="cert-img-wrap"><img src="img/ibm-thumb.jpg" alt="IBM SkillsBuild" loading="lazy"/></div>
+        <div class="cert-info">
+          <div class="cert-name">Artificial Intelligence Fundamentals</div>
+          <div class="cert-org">IBM SkillsBuild · June 2026</div>
+        </div>
+      </div>
+      <div class="cert-card reveal" tabindex="0" role="button" aria-label="Preview certificate: Database Management System" data-full="img/nptel.jpeg" data-name="Database Management System" data-org="NPTEL">
+        <div class="cert-num">03</div>
+        <div class="cert-img-wrap"><img src="img/nptel.jpeg" alt="NPTEL" loading="lazy"/></div>
+        <div class="cert-info">
+          <div class="cert-name">Database Management System</div>
+          <div class="cert-org">NPTEL</div>
+        </div>
+      </div>
+      <div class="cert-card reveal" tabindex="0" role="button" aria-label="Preview certificate: Frontend Development with HTML" data-full="img/gl1.png" data-name="Frontend Development with HTML" data-org="Great Learning">
+        <div class="cert-num">04</div>
+        <div class="cert-img-wrap"><img src="img/gl1.png" alt="Great Learning" loading="lazy"/></div>
+        <div class="cert-info">
+          <div class="cert-name">Frontend Development with HTML</div>
+          <div class="cert-org">Great Learning</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ EDUCATION ═══════ -->
+<section class="sec sec-alt" id="education">
+  <div class="container">
+    <h2 class="sec-title reveal">Education</h2>
+    <p class="sec-sub reveal">A strong academic foundation in Information Technology.</p>
+    <div class="edu-grid">
+
+      <article class="edu-card reveal">
+        <div class="edu-top">
+          <div class="edu-category">
+            <span class="edu-cat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path class="edu-icn" d="M1.8 9.3 12 4.1l10.2 5.2L12 14.5 1.8 9.3Z"/>
+                <path class="edu-icn" d="M6.1 11.5v3.9c0 1.5 2.6 2.7 5.9 2.7s5.9-1.2 5.9-2.7v-3.9"/>
+                <g class="edu-tassel">
+                  <path class="edu-icn" d="M21 9.5v4.6"/>
+                  <circle class="edu-tassel-bead" cx="21" cy="15.2" r="1.35"/>
+                </g>
+              </svg>
+            </span>
+            Undergraduate
+          </div>
+          <span class="edu-badge">CGPA 8.0</span>
+        </div>
+
+        <div class="edu-year-row">
+          <span class="edu-yr">2021</span>
+          <span class="edu-year-arrow">→</span>
+          <span class="edu-yr edu-end">2024</span>
+        </div>
+
+        <div class="edu-info">
+          <div class="edu-degree">Bachelor of Science — Information Technology</div>
+          <div class="edu-school">Sri Krishna Adithya College of Arts &amp; Science, Coimbatore</div>
+        </div>
+
+        <div class="edu-energy-line"></div>
+      </article>
+
+      <article class="edu-card edu-teal reveal">
+        <div class="edu-top">
+          <div class="edu-category">
+            <span class="edu-cat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path class="edu-icn" d="M2.8 5.4c2.7-.7 6.5-.3 9.2 1.5 2.7-1.8 6.5-2.2 9.2-1.5v12.9c-2.7-.7-6.5-.3-9.2 1.5-2.7-1.8-6.5-2.2-9.2-1.5V5.4Z"/>
+                <path class="edu-icn" d="M12 6.9v12.4"/>
+                <path class="edu-icn edu-pageline" d="M5.4 9.1h4.2"/>
+                <path class="edu-icn edu-pageline" d="M14.4 9.1h4.2"/>
+                <path class="edu-icn edu-pageline" d="M5.4 12.2h4.2"/>
+                <path class="edu-icn edu-pageline" d="M14.4 12.2h4.2"/>
+              </svg>
+            </span>
+            Schooling
+          </div>
+          <span class="edu-badge">10th — 78% · 12th — 82%</span>
+        </div>
+
+        <div class="edu-year-row">
+          <span class="edu-yr">2018</span>
+          <span class="edu-year-arrow">→</span>
+          <span class="edu-yr edu-end">2021</span>
+        </div>
+
+        <div class="edu-info">
+          <div class="edu-degree">10th &amp; 12th Standard</div>
+          <div class="edu-school">GOVT Higher Secondary School, Manjoor</div>
+        </div>
+
+        <div class="edu-energy-line"></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section class="sec ct-sec" id="contact">
+  <div class="ct-page">
+
+    <div class="ct-head">
+      <h2 class="ct-h1">Let's Connect</h2>
+      <p class="ct-sub"><span class="ct-dot"></span><b>Open to opportunities</b> — full-time roles,
+       freelance projects and collaborations. Usually replies within a day.</p>
+    </div>
+
+    <!-- contact cards -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+      <linearGradient id="ctChGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#9b7cff"/><stop offset="100%" stop-color="#c0aaff"/>
+      </linearGradient>
+    </defs></svg>
+
+    <div class="ct-row">
+      <button class="ct-ch" type="button" data-copy="vigneshkrishnan093@gmail.com">
+        <span class="ct-ico"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></span>
+        <span class="ct-txt"><span class="ct-k">EMAIL</span><span class="ct-v ct-sm">vigneshkrishnan093@gmail.com</span></span>
+        <span class="ct-act"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11.5" height="11.5" rx="2"/><path d="M15 5.5H5.5A1.5 1.5 0 0 0 4 7v9"/></svg></span>
+        <svg class="ct-draw" aria-hidden="true"><rect pathLength="100"/></svg>
+        <span class="ct-copied">✓ Copied</span>
+      </button>
+
+      <button class="ct-ch" type="button" data-copy="+91 9360201711">
+        <span class="ct-ico"><svg viewBox="0 0 24 24"><path d="M6 3.5h3l1.6 4-2 1.4a11 11 0 0 0 5.5 5.5l1.4-2 4 1.6v3A2 2 0 0 1 17.4 19 14.5 14.5 0 0 1 5 6.6 2 2 0 0 1 6 3.5Z"/></svg></span>
+        <span class="ct-txt"><span class="ct-k">PHONE</span><span class="ct-v">+91 9360201711</span></span>
+        <span class="ct-act"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11.5" height="11.5" rx="2"/><path d="M15 5.5H5.5A1.5 1.5 0 0 0 4 7v9"/></svg></span>
+        <svg class="ct-draw" aria-hidden="true"><rect pathLength="100"/></svg>
+        <span class="ct-copied">✓ Copied</span>
+      </button>
+
+      <a class="ct-ch" href="https://linkedin.com/in/vignesh-krish-dev" target="_blank" rel="noopener">
+        <span class="ct-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5V17M7.5 7.4v.1"/><path d="M12 17v-4a2.5 2.5 0 0 1 5 0v4"/><path d="M12 10.5V17"/></svg></span>
+        <span class="ct-txt"><span class="ct-k">LINKEDIN</span><span class="ct-v ct-sm">linkedin.com/in/vignesh-krish-dev</span></span>
+        <span class="ct-act"><svg viewBox="0 0 24 24"><path d="M13 4h7v7M20 4 10 14M18 14v5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19V8a1.5 1.5 0 0 1 1.5-1.5h5"/></svg></span>
+        <svg class="ct-draw" aria-hidden="true"><rect pathLength="100"/></svg>
+      </a>
+
+      <a class="ct-ch" href="https://github.com/vignesh-krish-dev" target="_blank" rel="noopener">
+        <span class="ct-ico"><svg viewBox="0 0 24 24"><path d="M9 19.5c-4 1.2-4-2.2-5.6-2.6M15 21.5v-3.4a2.9 2.9 0 0 0-.8-2.3c2.7-.3 5.3-1.3 5.3-5.9a4.6 4.6 0 0 0-1.2-3.1 4.2 4.2 0 0 0-.1-3.2s-1.4-.4-4.4 1.6a11 11 0 0 0-5.6 0C5.2 3.2 3.8 3.6 3.8 3.6a4.2 4.2 0 0 0-.1 3.2 4.6 4.6 0 0 0-1.2 3.2c0 4.5 2.6 5.5 5.3 5.9a2.9 2.9 0 0 0-.8 2.2v3.4"/></svg></span>
+        <span class="ct-txt"><span class="ct-k">GITHUB</span><span class="ct-v ct-sm">github.com/vignesh-krish-dev</span></span>
+        <span class="ct-act"><svg viewBox="0 0 24 24"><path d="M13 4h7v7M20 4 10 14M18 14v5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19V8a1.5 1.5 0 0 1 1.5-1.5h5"/></svg></span>
+        <svg class="ct-draw" aria-hidden="true"><rect pathLength="100"/></svg>
+      </a>
+    </div>
+
+    <form class="ct-form" id="cform" action="https://formsubmit.co/vigneshkrishnan093@gmail.com" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="New message from Vignesh.dev portfolio"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"/>
+
+      <div class="ct-three">
+        <div class="ct-f">
+          <label for="ctName">YOUR NAME</label>
+          <input id="ctName" name="name" type="text" placeholder="Your Name" autocomplete="name">
+          <span class="ct-msg">Please tell me your name</span>
+        </div>
+        <div class="ct-f">
+          <label for="ctEmail">EMAIL ADDRESS</label>
+          <input id="ctEmail" name="email" type="email" placeholder="youremail@gmail.com" autocomplete="email">
+          <span class="ct-msg">That email doesn't look right</span>
+        </div>
+        <div class="ct-f">
+          <label for="ctSubject">SUBJECT</label>
+          <input id="ctSubject" name="subject" type="text" placeholder="Something...">
+          <span class="ct-msg">Add a short subject</span>
+        </div>
+      </div>
+
+      <div class="ct-f ct-mfield">
+        <div class="ct-lrow">
+          <label for="ctMessage">MESSAGE</label>
+          <span class="ct-count" id="ctCount">0 / 1000</span>
+        </div>
+        <textarea id="ctMessage" name="message" rows="3" maxlength="1000"
+          placeholder="Elaborate about the information you want to communicate with me…"></textarea>
+        <span class="ct-msg">A little more detail would help</span>
+      </div>
+
+      <div class="ct-actions">
+        <button class="ct-send" type="submit" id="ctSend">
+          <span class="ct-spin"></span><span class="ct-lbl">Send Message</span>
+          <svg class="ct-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </button>
+        <span class="ct-reply">Or copy my email from above</span>
+      </div>
+    </form>
+
+  </div>
+  <div class="ct-watermark" aria-hidden="true">CONNECT</div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-inner">
+    <ul class="footer-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Vignesh K · All rights reserved</p>
+  </div>
+</footer>
+
+<a href="#hero" class="btt" id="btt"><i class="bi bi-arrow-up"></i></a>
+
+<!-- ═══════ CERTIFICATE LIGHTBOX ═══════ -->
+<div class="lightbox" id="certLightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close preview"><i class="bi bi-x-lg"></i></button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous certificate"><i class="bi bi-chevron-left"></i></button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next certificate"><i class="bi bi-chevron-right"></i></button>
+  <div class="lightbox-panel">
+    <img class="lightbox-img" id="lightboxImg" src="" alt=""/>
+    <div class="lightbox-caption">
+      <div class="lightbox-name" id="lightboxName"></div>
+      <div class="lightbox-org" id="lightboxOrg"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SECTION SCRIPTS — load order is the execution order, keep it ═══════ -->
+<!-- experience.js builds the timeline markup, so it must run before common.js observes .reveal-r -->
+<script src="js/experience.js"></script>
+<script src="js/canvas.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/common.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/certifications.js"></script>
+<script src="js/skills.js"></script>
+</body>
+</html>

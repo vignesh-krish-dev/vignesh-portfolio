@@ -1,0 +1,102 @@
+/* ═══════════════════════════════════════════════
+   BUTTONS (shared: hero, projects, contact)
+   ═══════════════════════════════════════════════ */
+
+/* ─── BUTTONS ─── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;border-radius:10px;
+  background:var(--gbtn);
+  color:#fff;font-weight:600;font-size:14.5px;
+  box-shadow:0 4px 0 0 rgba(0,0,0,.4);
+  transition:transform .15s cubic-bezier(.34,1.56,.64,1),box-shadow .15s ease,filter var(--tr);
+  position:relative;overflow:hidden;
+}
+.btn-primary::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.12),transparent);
+  opacity:0;transition:opacity var(--tr);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(79,70,229,.45),0 6px 0 0 rgba(0,0,0,.4);filter:brightness(1.08)}
+.btn-primary:hover::after{opacity:1}
+.btn-primary:active{
+  transform:translateY(3px);
+  box-shadow:0 1px 0 0 rgba(0,0,0,.4);
+  filter:brightness(.92);
+  transition:transform .06s ease,box-shadow .06s ease,filter .06s ease;
+}
+/* transform only — box-shadow is not a compositable property, so animating it
+   forced a main-thread repaint of the button on every frame and the float
+   visibly stuttered against the canvas loops. The glow is now a static value
+   at roughly the old midpoint, and the motion runs on the compositor. */
+@keyframes ctaFloat{
+  0%,100%{transform:translateY(0)}
+  50%    {transform:translateY(-4px)}
+}
+.btn-primary:not(:hover):not(:active):not(:disabled){
+  animation:ctaFloat 3.4s ease-in-out infinite;
+  box-shadow:0 4px 0 0 rgba(0,0,0,.4),0 11px 19px rgba(79,70,229,.25);
+  will-change:transform;
+}
+.btn-primary:disabled{
+  opacity:.4;cursor:not-allowed;
+  filter:none;transform:none;
+  box-shadow:0 4px 0 0 rgba(0,0,0,.4);
+}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;border-radius:10px;
+  border:1px solid var(--cbr);
+  color:var(--pl);font-weight:600;font-size:14.5px;
+  background:var(--cb);
+  box-shadow:0 4px 0 0 rgba(0,0,0,.35);
+  transition:background var(--tr),border-color var(--tr),transform .15s cubic-bezier(.34,1.56,.64,1),box-shadow .15s ease;
+}
+.btn-outline:hover{background:rgba(99,102,241,.14);border-color:var(--pl);transform:translateY(-2px);box-shadow:0 4px 20px rgba(79,70,229,.2),0 6px 0 0 rgba(0,0,0,.35)}
+.btn-outline:active{
+  transform:translateY(3px);
+  box-shadow:0 1px 0 0 rgba(0,0,0,.35);
+  filter:brightness(.94);
+  transition:transform .06s ease,box-shadow .06s ease,filter .06s ease;
+}
+.btn-outline span{
+  background-image:linear-gradient(110deg,currentColor 40%,#fff 50%,currentColor 60%);
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:labelShimmer 3s linear infinite;
+}
+@keyframes labelShimmer{
+  0%{background-position:120% 0}
+  100%{background-position:-40% 0}
+}
+
+/* ─── FILL FROM CURSOR (Get in Touch) ─── */
+.btn-fill::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,#818cf8,#6366f1);
+  clip-path:circle(0% at var(--fx,50%) var(--fy,50%));
+  transition:clip-path .55s cubic-bezier(.22,1,.36,1);
+}
+.btn-fill:hover::before{clip-path:circle(140% at var(--fx,50%) var(--fy,50%))}
+.btn-fill span,.btn-fill i{position:relative;z-index:1}
+
+/* ─── BORDER DRAWS ITSELF (Download CV) ─── */
+@property --draw-angle{
+  syntax:'<angle>';
+  inherits:false;
+  initial-value:0deg;
+}
+.btn-draw{position:relative}
+.btn-draw::before{
+  content:'';position:absolute;inset:-1px;
+  border-radius:inherit;
+  padding:1.5px;
+  background:conic-gradient(from -90deg,var(--pl) 0deg,var(--pl) var(--draw-angle),transparent var(--draw-angle));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  transition:--draw-angle .7s ease;
+  pointer-events:none;
+}
+.btn-draw:hover::before{--draw-angle:360deg}

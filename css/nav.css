@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════════ */
+
+/* ─── NAV ─── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  transition:background var(--tr),backdrop-filter var(--tr),border-color var(--tr);
+  border-bottom:1px solid transparent;
+}
+#nav.stuck{
+  background:rgba(9,8,15,.55);
+  backdrop-filter:blur(14px);
+  border-bottom-color:var(--cbr);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:0 24px;
+  height:68px;display:flex;align-items:center;gap:32px;
+}
+.nav-logo{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:20px;font-weight:700;
+  flex-shrink:0;
+}
+.nav-logo span{background:var(--gtxt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:4px;flex:1}
+.nav-links a{
+  padding:6px 14px;border-radius:8px;
+  font-size:13.5px;font-weight:500;
+  color:var(--muted);
+  transition:color var(--tr),background var(--tr);
+}
+.nav-links a:hover,.nav-links a.on{color:var(--pl);background:var(--cb)}
+.nav-end{display:flex;align-items:center;gap:8px}
+
+/* ─── SOCIAL BUTTONS — quiet icons that take their brand colour on hover ─── */
+.nav-social{display:flex;align-items:center;gap:10px}
+.nav-soc{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;
+  border-radius:10px;
+  border:1px solid rgba(155,124,255,.18);
+  background:transparent;
+  color:#a7a2bd;
+  text-decoration:none;
+  transition:color .26s,border-color .26s,background .26s,transform .28s;
+}
+.nav-soc svg{
+  width:17px;height:17px;
+  fill:none;stroke:currentColor;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+}
+.nav-soc-li:hover{
+  color:#4d9fff;
+  border-color:rgba(77,159,255,.5);
+  background:rgba(77,159,255,.10);
+  transform:translateY(-2px);
+}
+.nav-soc-gh:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,.45);
+  background:rgba(255,255,255,.08);
+  transform:translateY(-2px);
+}
+.nav-soc:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(155,124,255,.35);
+}
+@media(prefers-reduced-motion:reduce){
+  .nav-soc{transition:none}
+  .nav-soc:hover{transform:none}
+}
+.burger{
+  display:none;
+  flex-direction:column;gap:5px;
+  padding:4px;width:32px;
+}
+.burger span{
+  height:2px;border-radius:2px;
+  background:var(--text);
+  transition:transform var(--tr),opacity var(--tr);
+}
+.burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ─── RESPONSIVE ─── */
+/* 7 links + 2 social buttons stop fitting around 900px */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:absolute;top:68px;left:0;right:0;
+    background:rgba(6,8,20,.97);
+    backdrop-filter:blur(24px);
+    border-bottom:1px solid var(--cbr);
+    padding:16px;gap:4px;z-index:999;
+    max-height:calc(100svh - 68px);overflow-y:auto;
+  }
+  .nav-links.open a{
+    padding:12px 16px;border-radius:8px;display:flex;align-items:center;
+    min-height:44px;font-size:15px;
+  }
+}
+/* touch targets — 44px minimum on anything tablet-sized and down */
+@media(max-width:1023px){
+  .nav-soc{width:44px;height:44px}
+  /* keep align-items:stretch — the 3 bars are empty spans and need the width */
+  .burger{width:44px;height:44px;padding:12px 7px;justify-content:center}
+}

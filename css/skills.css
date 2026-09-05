@@ -1,0 +1,120 @@
+/* ═══════════════════════════════════════════════
+   SKILLS SECTION — ported from skills-section.html
+   ═══════════════════════════════════════════════ */
+.sk-mono{font-family:'DejaVu Sans Mono',ui-monospace,monospace}
+.sk-hero{position:relative;height:86vh;min-height:560px;max-height:820px;overflow:hidden;isolation:isolate;
+  display:flex;flex-direction:column;background:#0A0714;color:#EFECF8}
+.sk-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+.sk-dim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse 74% 68% at 46% 46%,rgba(10,7,20,.87) 0%,rgba(10,7,20,.48) 58%,transparent 84%)}
+
+.sk-wrap{position:relative;z-index:2;flex:1;min-height:0;
+  max-width:1340px;width:100%;margin:0 auto;padding:24px 34px 22px;
+  display:grid;grid-template-rows:auto 7fr 3fr;gap:14px}
+
+.sk-heading{font-size:clamp(22px,4vw,34px);letter-spacing:-1.3px;line-height:1;color:#F5B325;font-weight:700}
+.sk-label{font-size:11px;letter-spacing:2.4px;color:#EFECF8;font-weight:600;margin-bottom:4px}
+
+.sk-top{display:grid;grid-template-columns:40fr 60fr;gap:0 40px;min-height:0}
+
+.sk-left{display:flex;flex-direction:column;min-height:0}
+.sk-langs{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;min-height:0}
+.sk-row{display:grid;grid-template-columns:24px 1fr;grid-template-rows:auto auto;
+  gap:5px 12px;align-items:center}
+.sk-row .sk-ic{width:22px;height:22px;grid-row:span 2}
+.sk-row .sk-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.sk-row .sk-head{display:flex;justify-content:space-between;align-items:baseline}
+.sk-row .sk-nm{font-size:14px;color:#EFECF8}
+.sk-row .sk-pct{font-size:13px;color:#D4CFEA;font-variant-numeric:tabular-nums}
+.sk-track{display:block;height:7px;border-radius:5px;background:#1E1A44;overflow:hidden;position:relative}
+.sk-fill{display:block;height:100%;width:0;border-radius:5px;position:relative;
+  transition:width 1.4s cubic-bezier(.22,1,.36,1)}
+.sk-fill::after{content:'';position:absolute;inset:0;border-radius:5px;
+  background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.24) 50%,transparent 65%);
+  background-size:260% 100%;animation:skBarshim 3.4s linear infinite}
+@keyframes skBarshim{to{background-position:-160% 0}}
+
+.sk-gridwrap{border:1px solid #282253;border-radius:14px;
+  background:rgba(18,16,42,.66);backdrop-filter:blur(8px);padding:11px 12px;
+  display:flex;flex-direction:column;min-height:0}
+.sk-gh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;flex:0 0 auto}
+.sk-gh-t{font-size:10.5px;letter-spacing:2.2px;font-weight:600}
+.sk-gh-n{font-size:9.5px;letter-spacing:1.3px;color:#6B6494}
+.sk-igrid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(5,1fr);
+  grid-auto-rows:1fr;gap:6px}
+.sk-gi{position:relative;border-radius:9px;border:1px solid #2C2664;background:#171436;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  padding:6px 4px;opacity:.52;filter:saturate(.6);cursor:default;min-height:0;
+  transition:transform .38s cubic-bezier(.22,1,.36,1),opacity .38s,border-color .38s,
+    box-shadow .38s,filter .38s}
+.sk-gi .sk-im{width:23px;height:23px;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+.sk-gi .sk-im img{width:100%;height:100%;object-fit:contain;display:block}
+.sk-gi .sk-lb{font-size:9px;color:#A59EC6;line-height:1.15;text-align:center}
+.sk-gi.sk-hot,.sk-gi:hover{opacity:1;filter:saturate(1.12);transform:scale(1.08);
+  border-color:rgba(45,212,191,.6);
+  box-shadow:0 10px 20px -10px rgba(0,0,0,.9),0 0 18px -6px rgba(45,212,191,.48)}
+.sk-gi.sk-hot .sk-lb,.sk-gi:hover .sk-lb{color:#EFECF8}
+.sk-gi .sk-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);
+  background:#0D0A22;border:1px solid rgba(45,212,191,.4);border-radius:7px;padding:6px 10px;
+  font-size:11px;color:#D4CFEA;white-space:nowrap;opacity:0;pointer-events:none;z-index:30;
+  box-shadow:0 10px 22px -10px rgba(0,0,0,.95);
+  transition:opacity .2s ease,transform .26s cubic-bezier(.22,1,.36,1)}
+.sk-gi .sk-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:5px solid transparent;border-top-color:rgba(45,212,191,.4)}
+.sk-gi:hover .sk-tip{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.sk-mqbox{position:relative;border:1px solid #282253;border-radius:14px;
+  background:rgba(18,16,42,.72);overflow:hidden;min-height:0;
+  display:flex;flex-direction:column}
+.sk-mqhead{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;
+  padding:8px 16px;border-bottom:1px solid #282253}
+.sk-mqhead-t{font-size:10.5px;letter-spacing:2.2px;font-weight:600;color:#EFECF8}
+.sk-mqhead-hint{font-size:9.5px;letter-spacing:1.3px;color:#6B6494}
+.sk-viewport{flex:1;min-height:0;position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  perspective:900px;perspective-origin:50% 50%;
+  mask-image:linear-gradient(90deg,transparent,#000 11%,#000 89%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 11%,#000 89%,transparent)}
+.sk-track2{display:flex;align-items:center;width:max-content;
+  transform-style:preserve-3d;will-change:transform}
+.sk-item{flex:0 0 auto;padding:0 24px;font-size:19px;letter-spacing:-.3px;white-space:nowrap;
+  color:#6B6494;transform-style:preserve-3d;backface-visibility:hidden;
+  will-change:transform,opacity;transition:color .25s ease;font-weight:600}
+.sk-item.sk-lit{color:#EFECF8}
+
+@media(max-width:1040px){
+  .sk-hero{height:auto;min-height:0}
+  .sk-wrap{grid-template-rows:auto auto auto;padding:30px 22px}
+  .sk-top{grid-template-columns:1fr;gap:24px}
+  .sk-langs{gap:14px;justify-content:flex-start}
+  .sk-igrid{grid-auto-rows:minmax(64px,auto)}
+  .sk-mqbox{height:150px}
+  .sk-heading{font-size:30px}
+}
+
+@media(max-width:960px){
+  .skills-layout{grid-template-columns:1fr}
+}
+
+/* ─── SECTION BADGE + TITLE ACCENT ─── */
+#skills   .sec-badge{color:var(--amber); border-color:var(--amber-b);background:var(--amber-g)}
+#skills   .sec-title{background:linear-gradient(135deg,#fbbf24,#fde68a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ─── RESPONSIVE ─── */
+/* the fixed 86vh / 70-30 / 40-60 split compresses to nothing below laptop */
+@media(max-width:1023px){
+  .sk-hero{height:auto;min-height:0;max-height:none}
+  .sk-wrap{grid-template-rows:auto auto auto;padding:28px 22px}
+  .sk-top{grid-template-columns:1fr;gap:24px}
+  .sk-langs{gap:14px;justify-content:flex-start}
+  .sk-igrid{grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(72px,auto)}
+  .sk-mqbox{min-height:132px}
+}
+@media(max-width:760px){
+  .sk-igrid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:479px){
+  .sk-igrid{grid-template-columns:repeat(2,1fr)}
+  .sk-wrap{padding:24px 18px}
+  .sk-item{padding:0 16px;font-size:16px}
+}

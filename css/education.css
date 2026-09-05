@@ -1,0 +1,147 @@
+/* ─── EDUCATION ─── */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.edu-card{
+  --accent:#9b7cff;
+  --accent-dim:rgba(155,124,255,.22);
+  --accent-soft:rgba(155,124,255,.12);
+  min-height:265px;padding:26px 32px 24px;
+  border:1px solid rgba(155,124,255,.18);border-radius:25px;
+  background:#0d0b19;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1),
+             border-color .45s, box-shadow .5s, background .5s;
+}
+.edu-card.edu-teal{
+  --accent:#25d4c2;
+  --accent-dim:rgba(37,212,194,.22);
+  --accent-soft:rgba(37,212,194,.11);
+  border-color:rgba(37,212,194,.16);
+}
+
+.edu-top{display:flex;align-items:flex-start;justify-content:space-between;
+  gap:20px;position:relative;z-index:3}
+.edu-category{display:flex;align-items:center;gap:10px;color:#aaa5b9;
+  font-size:13px;font-weight:700;letter-spacing:.02em}
+
+/* icons */
+.edu-cat-icon{width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center}
+.edu-cat-icon svg{width:23px;height:23px;overflow:visible}
+.edu-cat-icon svg *{vector-effect:non-scaling-stroke}
+.edu-icn{stroke:var(--accent);stroke-width:1.7;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+
+/* cap: the tassel swings like a pendulum */
+.edu-tassel{transform-origin:21px 9.5px;animation:eduSwing 3.6s ease-in-out infinite}
+@keyframes eduSwing{
+  0%,100%{transform:rotate(-9deg)}
+  50%    {transform:rotate(9deg)}
+}
+.edu-tassel-bead{fill:var(--accent);stroke:none}
+
+/* book: the ruled lines draw themselves in, then reset */
+.edu-pageline{stroke-dasharray:14;stroke-dashoffset:14;animation:eduDraw 4.6s ease-in-out infinite}
+.edu-pageline:nth-of-type(2){animation-delay:.32s}
+.edu-pageline:nth-of-type(3){animation-delay:.64s}
+.edu-pageline:nth-of-type(4){animation-delay:.96s}
+@keyframes eduDraw{
+  0%      {stroke-dashoffset:14}
+  32%,72% {stroke-dashoffset:0}
+  100%    {stroke-dashoffset:14}
+}
+
+/* badge */
+.edu-badge{flex:0 0 auto;padding:7px 11px;border-radius:999px;
+  font-size:11px;font-weight:800;white-space:nowrap;
+  background:var(--accent-soft);color:var(--accent);
+  border:1px solid var(--accent-dim)}
+
+/* years: one smooth travelling highlight */
+.edu-year-row{
+  display:flex;align-items:baseline;gap:10px;margin-top:25px;
+  position:relative;z-index:2;font-size:clamp(34px,8.5vw,54px);font-weight:900;
+  line-height:.9;letter-spacing:-.07em;
+}
+.edu-yr{
+  background-image:linear-gradient(100deg,
+    var(--accent-dim) 32%, var(--accent) 50%, var(--accent-dim) 68%);
+  background-size:280% 100%;
+  background-position:130% 0;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:eduYearSweep 6.5s linear infinite;
+}
+.edu-yr.edu-end{animation-delay:.9s}
+@keyframes eduYearSweep{
+  0%  {background-position:130% 0}
+  100%{background-position:-30% 0}
+}
+.edu-card.edu-teal .edu-yr{animation-delay:1.4s}
+.edu-card.edu-teal .edu-yr.edu-end{animation-delay:2.3s}
+.edu-card.edu-teal .edu-year-arrow{animation-delay:0s,1.4s}
+.edu-year-arrow{font-size:25px;font-weight:500;letter-spacing:0;
+  -webkit-text-fill-color:var(--accent);color:var(--accent);
+  animation:eduNudge 3.25s ease-in-out infinite, eduArrowFade 6.5s linear infinite}
+@keyframes eduNudge{
+  0%,100%{transform:translateX(0)}
+  50%    {transform:translateX(6px)}
+}
+@keyframes eduArrowFade{
+  0%,100%{opacity:.30}
+  46%    {opacity:.30}
+  62%    {opacity:1}
+  78%    {opacity:.30}
+}
+
+/* text */
+.edu-info{position:relative;z-index:3;margin-top:30px;padding-top:2px;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.edu-degree{font-size:clamp(17px,2vw,21px);font-weight:700;line-height:1.2;letter-spacing:-.025em}
+.edu-school{font-size:14px;color:#9b97ab;line-height:1.5;margin-top:9px}
+
+/* hover */
+.edu-card:hover .edu-info{transform:translateY(-10px)}
+.edu-card:hover{transform:translateY(-4px);border-color:rgba(155,124,255,.38);
+  box-shadow:0 25px 65px rgba(110,80,210,.13);background:#100e1e}
+.edu-card.edu-teal:hover{border-color:rgba(37,212,194,.4);
+  box-shadow:0 25px 65px rgba(25,160,145,.13)}
+
+/* idle line along the bottom */
+.edu-energy-line{position:absolute;left:-100%;bottom:0;width:100%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  animation:eduEnergy 3.8s linear infinite;z-index:4}
+.edu-card.edu-teal .edu-energy-line{animation-delay:1.6s}
+@keyframes eduEnergy{0%{left:-100%}100%{left:100%}}
+
+@media(max-width:760px){
+  .edu-grid{grid-template-columns:1fr}
+  .edu-year-row{font-size:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  .edu-yr,.edu-year-arrow,.edu-energy-line,.edu-tassel,.edu-pageline{animation:none}
+  .edu-yr{-webkit-text-fill-color:var(--accent);color:var(--accent)}
+  .edu-pageline{stroke-dashoffset:0}
+  .edu-energy-line{display:none}
+}
+
+@media(max-width:640px){
+  .edu-grid{grid-template-columns:1fr}
+}
+
+/* ─── SECTION BADGE + TITLE ACCENT ─── */
+#education .sec-badge{color:var(--violet);border-color:var(--violet-b);background:var(--violet-g)}
+#education .sec-title{background:linear-gradient(135deg,#a78bfa,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  /* the nowrap badge + category label stop fitting on one row */
+  .edu-top{flex-wrap:wrap;gap:10px}
+  .edu-badge{white-space:normal}
+}
+@media(max-width:760px){
+  .edu-card{min-height:0;padding:22px 20px}
+  .edu-info{margin-top:22px}
+}
+@media(max-width:420px){
+  .edu-year-row{gap:6px}
+  .edu-school{font-size:13px}
+}

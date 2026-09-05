@@ -1,0 +1,110 @@
+/* ═══════════════════════════════════════════════
+   FROZEN VIOLET — Portfolio CSS
+   ═══════════════════════════════════════════════ */
+
+/* ─── VARIABLES ─── */
+:root{
+  --bg:#09080f; --bg2:#0d0c18; --bg3:#110f1e;
+  --p:#4f46e5; --pl:#818cf8; --ac:#7c3aed; --pop:#c7d2fe;
+  --text:#e0e7ff; --muted:#ffffff; --dim:#1e1c3a;
+  --cb:rgba(79,70,229,.06); --cbr:rgba(99,102,241,.18);
+  --tl-card-hi:#14122c; --tl-body:rgba(224,231,255,.78); --tl-mut:rgba(224,231,255,.5);
+  --gbtn:linear-gradient(135deg,#4f46e5,#4338ca);
+  --gtxt:linear-gradient(135deg,#c7d2fe,#ffffff);
+  --gc1:linear-gradient(160deg,#1a1440,#2e1e80);
+  --frost:rgba(199,210,254,.05); --star:#a5b4fc;
+  --r:16px; --tr:.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* ─── RESET & BASE ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* scrollbar-gutter reserves the scrollbar's space permanently, so hiding the
+   scrollbar (certificate lightbox, experience modal, mobile menu) no longer
+   widens the viewport and nudges the whole page sideways */
+html{scroll-behavior:smooth;scroll-padding-top:76px;scrollbar-gutter:stable}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:clamp(14px,1.1vw,16px);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,h5{font-family:'Space Grotesk',sans-serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+img{display:block}
+img,svg,video,canvas{max-width:100%}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+/* long unbroken strings (emails, URLs) must never force the page wider */
+body{overflow-wrap:break-word}
+
+/* ─── CANVAS ─── */
+#cvs{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ─── CONTAINER ─── */
+.container{
+  width:100%;
+  max-width:1240px;
+  margin-inline:auto;
+  padding-inline:clamp(20px,4vw,40px);
+  position:relative;z-index:1;
+}
+/* notched phones: never let content sit under the rounded corner / camera cutout */
+@supports(padding:max(0px)){
+  .container{
+    padding-left:max(clamp(20px,4vw,40px),env(safe-area-inset-left));
+    padding-right:max(clamp(20px,4vw,40px),env(safe-area-inset-right));
+  }
+}
+/* large monitors: don't strand the site in a narrow ribbon */
+@media(min-width:1600px){
+  .container{max-width:1440px}
+}
+
+/* ─── SECTION BASE ─── */
+/* overflow-x:clip contains the reveal animations' translateX without creating a
+   scroll container (so vertical card shadows still show and sticky still works) */
+.sec{padding:49px 0 53px;position:relative;overflow-x:clip}
+.sec-alt{background:var(--bg2)}
+.sec-badge{
+  display:inline-block;
+  padding:4px 14px;
+  border:1px solid var(--cbr);
+  border-radius:20px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--pl);
+  background:var(--cb);
+  margin-bottom:12px;
+}
+.sec-title{
+  font-size:clamp(28px,4vw,46px);
+  font-weight:700;
+  background:var(--gtxt);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:12px;
+  position:relative;
+}
+.sec-sub{color:var(--muted);max-width:640px;margin-bottom:40px}
+.sub-title{font-size:22px;color:var(--text);margin-bottom:24px;font-weight:600}
+
+/* ─── DIVIDER ─── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--cbr),transparent);position:relative;z-index:1}
+
+/* ═══════════════════════════════════════════════
+   MULTI-COLOR ACCENT LAYER
+   teal · rose · amber · violet · green
+   ═══════════════════════════════════════════════ */
+
+:root{
+  --teal:#2dd4bf;  --teal-g:rgba(45,212,191,.08);  --teal-b:rgba(45,212,191,.22);
+  --rose:#fb7185;  --rose-g:rgba(251,113,133,.08);  --rose-b:rgba(251,113,133,.22);
+  --amber:#fbbf24; --amber-g:rgba(251,191,36,.08);  --amber-b:rgba(251,191,36,.22);
+  --violet:#a78bfa;--violet-g:rgba(167,139,250,.08);--violet-b:rgba(167,139,250,.22);
+  --green:#4ade80; --green-g:rgba(74,222,128,.08);  --green-b:rgba(74,222,128,.22);
+}

@@ -1,0 +1,173 @@
+/* ═══════════════════════════════════════════════
+   CERTIFICATIONS — cards + lightbox
+   ═══════════════════════════════════════════════ */
+
+/* ─── CERTS ─── */
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 20px;margin-top:8px}
+.cert-card{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;gap:22px;
+  min-height:150px;
+  background:var(--cb);
+  border:1px solid var(--cbr);
+  border-radius:14px;
+  padding:28px 32px;
+  cursor:pointer;
+  transition:transform var(--tr),border-color var(--tr),box-shadow var(--tr);
+}
+.cert-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:26px;font-weight:700;
+  color:var(--dim);flex-shrink:0;width:42px;
+}
+.cert-card:hover{transform:translateY(-3px);border-color:rgba(99,102,241,.3);box-shadow:0 12px 30px rgba(6,8,20,.35)}
+.cert-card:focus-visible{outline:2px solid var(--pl);outline-offset:2px}
+.cert-ripple{
+  position:absolute;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(99,102,241,.45),rgba(99,102,241,.08) 60%,transparent 72%);
+  transform:scale(0);
+  pointer-events:none;
+  animation:certRipple .6s ease-out forwards;
+  z-index:1;
+}
+@keyframes certRipple{
+  to{transform:scale(1);opacity:0}
+}
+.cert-img-wrap{
+  position:relative;
+  width:108px;height:78px;flex-shrink:0;border-radius:10px;overflow:hidden;background:var(--bg3);
+}
+.cert-img-wrap img{width:100%;height:100%;object-fit:cover}
+.cert-img-wrap::after{
+  content:'';
+  position:absolute;
+  top:-40%;bottom:-40%;
+  left:-70px;
+  width:46px;
+  background:linear-gradient(100deg,
+    transparent,
+    rgba(255,255,255,.85),
+    rgba(190,220,255,.5),
+    transparent);
+  transform:rotate(14deg);
+  mix-blend-mode:screen;
+  pointer-events:none;
+  animation:certFoil 8s ease-in-out infinite;
+}
+@keyframes certFoil{
+  0%        {left:-70px}
+  30%,100%  {left:135%}
+}
+.cert-card:nth-child(2) .cert-img-wrap::after{animation-delay:2s}
+.cert-card:nth-child(3) .cert-img-wrap::after{animation-delay:4s}
+.cert-card:nth-child(4) .cert-img-wrap::after{animation-delay:6s}
+@media(prefers-reduced-motion:reduce){
+  .cert-img-wrap::after{animation:none;opacity:0}
+}
+.cert-name{font-size:17px;font-weight:600;color:var(--text);margin-bottom:6px}
+.cert-org{font-size:13.5px;color:var(--muted)}
+
+/* ─── CERTIFICATE LIGHTBOX ─── */
+.lightbox{
+  position:fixed;inset:0;z-index:200;
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 20px;
+  background:rgba(6,7,14,.86);
+  backdrop-filter:blur(6px);
+  opacity:0;visibility:hidden;
+  transition:opacity .25s ease,visibility .25s ease;
+}
+.lightbox.active{opacity:1;visibility:visible}
+.lightbox-panel{
+  position:relative;
+  width:min(460px,88vw);max-height:80vh;
+  display:flex;flex-direction:column;
+  background:var(--bg2);
+  border:1px solid var(--cbr);
+  border-radius:16px;
+  overflow-y:auto;overflow-x:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  transform:scale(.92) translateY(12px);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.lightbox.active .lightbox-panel{transform:scale(1) translateY(0)}
+.lightbox-img{
+  width:100%;max-height:48vh;
+  object-fit:contain;
+  background:#0a0a12;
+  display:block;
+}
+.lightbox-caption{
+  padding:14px 18px 18px;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+}
+.lightbox-name{font-size:14px;font-weight:700;color:var(--text)}
+.lightbox-org{font-size:12px;color:var(--muted);text-align:right;flex-shrink:0}
+.lightbox-close{
+  position:absolute;top:22px;right:22px;z-index:201;
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(10,10,20,.7);
+  border:1px solid var(--cbr);
+  border-radius:50%;
+  color:var(--text);font-size:16px;
+  cursor:pointer;
+  box-shadow:0 3px 0 0 rgba(0,0,0,.4);
+  transition:background var(--tr),transform .15s cubic-bezier(.34,1.56,.64,1),box-shadow .15s ease;
+}
+.lightbox-close:hover{background:rgba(239,68,68,.25);transform:rotate(90deg)}
+.lightbox-close:active{transform:rotate(90deg) scale(.86);box-shadow:0 1px 0 0 rgba(0,0,0,.4);transition:transform .06s ease,box-shadow .06s ease}
+.lightbox-nav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:201;
+  width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(10,10,20,.7);
+  border:1px solid var(--cbr);
+  border-radius:50%;
+  color:var(--text);font-size:19px;
+  cursor:pointer;
+  box-shadow:0 3px 0 0 rgba(0,0,0,.4);
+  transition:background var(--tr),transform .15s cubic-bezier(.34,1.56,.64,1),opacity var(--tr),box-shadow .15s ease;
+}
+.lightbox-nav:active{transform:translateY(-50%) scale(.86);box-shadow:0 1px 0 0 rgba(0,0,0,.4);transition:transform .06s ease,box-shadow .06s ease}
+.lightbox-nav:hover{background:rgba(99,102,241,.28)}
+.lightbox-nav:active{transform:translateY(-50%) scale(.92)}
+.lightbox-prev{left:22px}
+.lightbox-next{right:22px}
+.lightbox-nav:disabled{opacity:.25;cursor:default;pointer-events:none}
+@media(max-width:560px){
+  .lightbox-close{top:14px;right:14px}
+  .lightbox-nav{width:40px;height:40px;font-size:16px}
+  .lightbox-prev{left:8px}
+  .lightbox-next{right:8px}
+}
+
+@media(max-width:640px){
+  .cert-grid{grid-template-columns:1fr}
+}
+
+/* ─── CERTIFICATION NUMBERS — rotating colors ─── */
+.cert-card:nth-child(1) .cert-num{color:var(--teal)}
+.cert-card:nth-child(2) .cert-num{color:var(--violet)}
+.cert-card:nth-child(3) .cert-num{color:var(--amber)}
+.cert-card:nth-child(4) .cert-num{color:var(--rose)}
+.cert-card:nth-child(5) .cert-num{color:var(--green)}
+.cert-card:nth-child(1):hover{border-color:rgba(45,212,191,.3)}
+.cert-card:nth-child(2):hover{border-color:rgba(167,139,250,.3)}
+.cert-card:nth-child(3):hover{border-color:rgba(251,191,36,.3)}
+.cert-card:nth-child(4):hover{border-color:rgba(251,113,133,.3)}
+.cert-card:nth-child(5):hover{border-color:rgba(74,222,128,.3)}
+
+/* ─── RESPONSIVE ─── */
+/* the text column must be allowed to shrink inside the flex row */
+.cert-info{min-width:0}
+@media(max-width:760px){
+  .cert-grid{grid-template-columns:1fr}
+}
+/* below ~420px the thumbnail leaves the title a sliver — stack them instead */
+@media(max-width:420px){
+  .cert-card{flex-direction:column;align-items:flex-start;gap:14px;padding:20px;min-height:0}
+  .cert-num{width:auto}
+  .cert-img-wrap{width:100%;height:112px}
+}
