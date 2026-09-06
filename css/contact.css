@@ -25,7 +25,7 @@
 /* all four cards are the same width */
 .ct-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
 .ct-ch{opacity:0;transform:translateY(22px) scale(.97);
-  position:relative;display:flex;align-items:center;justify-content:center;gap:13px;
+  position:relative;display:flex;align-items:center;gap:13px;
   padding:14px 16px;border-radius:14px;background:#0d0b19;
   border:1px solid rgba(155,124,255,.16);color:inherit;text-decoration:none;cursor:pointer;
   font-family:inherit;text-align:left;overflow:hidden;
@@ -62,7 +62,7 @@
 .ct-ch .ct-ico svg{width:17px;height:17px;fill:none;stroke:#9b7cff;
   stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-.ct-ch .ct-txt{min-width:0;flex:0 1 auto;position:relative;z-index:1}
+.ct-ch .ct-txt{min-width:0;flex:1;position:relative;z-index:1}
 .ct-ch .ct-k{display:block;font-size:9.5px;letter-spacing:1.6px;font-weight:700;
   color:#fff;opacity:.55;margin-bottom:2px;transition:opacity .3s,color .3s}
 .ct-ch:hover .ct-k{opacity:1}
@@ -167,7 +167,8 @@
 /* an equal column is 273px at 4-across, and the full URLs only fit on one line
    there with slightly tighter padding and value type — otherwise they wrap */
 @media(min-width:1201px){
-  .ct-ch{padding:14px 13px;gap:10px}
+  .ct-ch{padding:14px 13px;gap:10px;justify-content:center}
+  .ct-ch .ct-txt{flex:0 1 auto}
   .ct-ch .ct-v,.ct-ch .ct-v.ct-sm{font-size:11.5px;letter-spacing:-.2px}
 }
 /* once the cards are 2-up or 1-up the 1.3fr email column stops making sense */
