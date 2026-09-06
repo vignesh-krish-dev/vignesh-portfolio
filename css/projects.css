@@ -66,7 +66,10 @@
 .proj-desc{font-size:13px;color:var(--muted);line-height:1.7;flex:1;margin-bottom:18px}
 .proj-stack{display:flex;align-items:center;gap:10px;margin-bottom:20px}
 .proj-stack img{width:26px;height:26px;border-radius:5px;object-fit:contain;background:var(--bg3);padding:3px}
-.stack-text{font-size:11px;font-weight:600;color:var(--muted);border:1px solid var(--cbr);padding:3px 8px;border-radius:5px}
+.stack-text{font-size:11px;font-weight:600;color:var(--muted);border:1px solid var(--cbr);padding:3px 8px;border-radius:5px;
+  display:inline-flex;align-items:center;gap:6px}
+/* the logo sits inside the chip, so it drops the standalone icon styling */
+.proj-stack .stack-text img{width:18px;height:18px;padding:0;background:none;border-radius:3px;object-fit:contain}
 .proj-links{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .proj-link{
   display:inline-flex;align-items:center;gap:6px;

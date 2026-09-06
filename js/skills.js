@@ -72,13 +72,7 @@ const SK_SKILLS=[
 
 /* ---- bars ---- */
 const skLangsEl = document.getElementById('skLangs');
-skLangsEl.innerHTML=SK_LANGS.map((l,i)=>`
-  <div class="sk-row">
-    <span class="sk-ic">${skIcon(l.k)}</span>
-    <span class="sk-head"><span class="sk-nm">${l.n}</span><span class="sk-pct" data-t="${l.v}">0%</span></span>
-    <span class="sk-track" style="grid-column:2"><span class="sk-fill" data-v="${l.v}"
-      style="background:${l.g};transition-delay:${(i*0.12).toFixed(2)}s"></span></span>
-  </div>`).join('');
+/* rows are static markup in index.html; the bars animate on scroll below */
 
 let skBarsRun=false;
 function skRunBars(){
@@ -99,16 +93,14 @@ else skRunBars();
 const skSeen=new Set(),SK_GRID=[];
 SK_SKILLS.forEach(s=>{if(!skSeen.has(s.k+s.n)){skSeen.add(s.k+s.n);SK_GRID.push(s);}});
 const skIgridEl = document.getElementById('skIgrid');
-skIgridEl.innerHTML=SK_GRID.map(s=>`
-  <div class="sk-gi" data-k="${s.k}"><span class="sk-tip">${s.d}</span>
-  <span class="sk-im">${skIcon(s.k)}</span><span class="sk-lb">${s.n}</span></div>`).join('');
-document.getElementById('skGcount').textContent=SK_GRID.length+' TECHNOLOGIES';
+/* tiles are static markup in index.html */
+/* count is written into the HTML */
 const skGiByKey={};skSection.querySelectorAll('.sk-gi').forEach(el=>{ if(!skGiByKey[el.dataset.k]) skGiByKey[el.dataset.k]=el; });
 
 /* ---- coverflow bar ---- */
 const skTrack=document.getElementById('skTrack'), skVp=document.getElementById('skVp');
 const skOne=s=>`<span class="sk-item" data-k="${s.k}">${s.n}</span>`;
-skTrack.innerHTML=SK_SKILLS.map(skOne).join('')+SK_SKILLS.map(skOne).join('');
+/* the marquee items (list + duplicate for seamless wrap) are static markup */
 
 const skItems=[...skTrack.children];
 let skMETA=[], skHalf=0, skVpW=0, skReach=0;

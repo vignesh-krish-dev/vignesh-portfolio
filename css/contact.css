@@ -195,3 +195,9 @@
   .ct-form textarea{height:calc(1.55em * 4 + 22px)}
   .ct-page{padding:44px 20px 52px}
 }
+
+/* announced by screen readers on a successful copy, never shown visually */
+.ct-sr-live{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;
+  overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;
+}

@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <!-- marks that JS is available, so progressive-enhancement fallbacks can hide
+       themselves before first paint rather than flashing -->
+  <script>document.documentElement.className+=" js"</script>
   <title>Vignesh K — Junior Software Engineer</title>
+
+  <meta name="description" content="Vignesh K — Junior Software Engineer with 1+ year building enterprise radiology software in C++, Python and TypeScript. Open to backend and full-stack roles.">
+  <link rel="canonical" href="https://vignesh-krish-dev.github.io/vignesh-portfolio/">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0a0816">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vignesh-krish-dev.github.io/vignesh-portfolio/">
+  <meta property="og:title" content="Vignesh K — Junior Software Engineer">
+  <meta property="og:description" content="1+ year building enterprise radiology software in C++, Python and TypeScript. Open to backend and full-stack roles.">
+  <!-- og:image intentionally omitted: img/og-cover.png (1200x630) does not exist yet.
+       A referenced-but-missing image gets cached as a failure by the scrapers. -->
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vignesh K — Junior Software Engineer">
+  <meta name="twitter:description" content="1+ year building enterprise radiology software in C++, Python and TypeScript.">
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -125,35 +144,35 @@
           <span class="about-tile-k">FOCUS</span>
           <div class="about-swap">
             <span class="about-s1"><span class="about-v">Backend · C++ · Python</span></span>
-            <span class="about-s2"><span class="about-v">Backend · C++ · Python</span><span class="about-extra">Systems &amp; performance</span></span>
+            <span class="about-s2" aria-hidden="true"><span class="about-v">Backend · C++ · Python</span><span class="about-extra">Systems &amp; performance</span></span>
           </div>
         </div>
         <div class="about-tile">
           <span class="about-tile-k">EXPERIENCE</span>
           <div class="about-swap">
             <span class="about-s1"><span class="about-v">1+ year</span></span>
-            <span class="about-s2"><span class="about-v">1+ year</span><span class="about-extra">Professional, shipping software</span></span>
+            <span class="about-s2" aria-hidden="true"><span class="about-v">1+ year</span><span class="about-extra">Professional, shipping software</span></span>
           </div>
         </div>
         <div class="about-tile">
           <span class="about-tile-k">BASED IN</span>
           <div class="about-swap">
             <span class="about-s1"><span class="about-v">Coimbatore, Tamil Nadu</span></span>
-            <span class="about-s2"><span class="about-v">Coimbatore, Tamil Nadu</span><span class="about-extra">Open to relocation</span></span>
+            <span class="about-s2" aria-hidden="true"><span class="about-v">Coimbatore, Tamil Nadu</span><span class="about-extra">Open to relocation</span></span>
           </div>
         </div>
         <div class="about-tile">
           <span class="about-tile-k">EMAIL</span>
           <div class="about-swap">
             <span class="about-s1"><span class="about-v about-sm">vigneshkrishnan093@gmail.com</span></span>
-            <span class="about-s2"><span class="about-v about-sm">vigneshkrishnan093@gmail.com</span><span class="about-extra">Usually reply same day</span></span>
+            <span class="about-s2" aria-hidden="true"><span class="about-v about-sm">vigneshkrishnan093@gmail.com</span><span class="about-extra">Usually reply same day</span></span>
           </div>
         </div>
         <div class="about-tile">
           <span class="about-tile-k">STATUS</span>
           <div class="about-swap">
             <span class="about-s1"><span class="about-stat"><span class="about-stat-dot"></span>Open to opportunities</span></span>
-            <span class="about-s2"><span class="about-stat"><span class="about-stat-dot"></span>Open to opportunities</span><span class="about-extra">Frontend &amp; backend roles</span></span>
+            <span class="about-s2" aria-hidden="true"><span class="about-stat"><span class="about-stat-dot"></span>Open to opportunities</span><span class="about-extra">Frontend &amp; backend roles</span></span>
           </div>
         </div>
       </div>
@@ -183,8 +202,145 @@
       <div class="company-badge-pill">Full-Time</div>
     </div>
 
-    <!-- 4 Work Items — rendered from the PROJECTS data array in js/experience.js -->
-    <div class="timeline" id="tl"></div>
+    <!-- 4 Work Items. Static markup so the content exists without JS;
+         js/experience.js attaches the expand behaviour to it. -->
+    <div class="timeline" id="tl">
+      <div class="tl-row reveal-r" id="tlRow0" style="--a:#2dd4bf">
+        <div class="tl-spine"><span class="tl-stub"></span><span class="tl-dot"></span></div>
+        <article class="tl-card" id="tlCard0" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View full details: Internal Radiology Chat System">
+          <span class="tl-num">01</span>
+          <div class="tl-main">
+            <div class="tl-icon"><i class="bi bi-chat-dots-fill"></i></div>
+            <div>
+              <h3 class="work-title">Internal Radiology Chat System</h3>
+              <p class="work-desc">Independently built a real-time chat system for an entire facility's radiology workflow using Vue 3, Node.js, and PostgreSQL.</p>
+              <ul class="work-list"><li>Instant real-time chat</li><li>On-device smart-reply engine</li><li>Role-based access control</li><li>Communication support for the radiology workflow</li></ul>
+              <div class="tl-footrow">
+                <div class="work-tags"><span>Vue 3</span><span>Node.js</span><span>PostgreSQL</span><span>RBAC</span></div>
+                <button class="tl-cue" id="tlCue0" aria-haspopup="dialog">
+                  <span class="tl-cue-text">Click for full details</span> <span class="tl-chev">↗</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Full detail. Shown inline when JS is unavailable; the script moves it
+               into the modal instead. Source of truth for the modal content. -->
+          <div class="tl-detail-src">
+      <div class="tl-blk" style="transition-delay:0.10s;opacity:1;transform:none"><h4>Overview</h4><p>Full-stack real-time communication platform integrated into an enterprise radiology workflow, enabling users to communicate directly within the existing radiology application instead of relying on separate communication tools.</p></div>
+      <div class="tl-blk" style="transition-delay:0.15s;opacity:1;transform:none"><h4>Interfaces</h4><ul><li>Floating chat widget</li><li>Maximized panel</li><li>Standalone browser experience</li><li>All three from a single codebase</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.19s;opacity:1;transform:none"><h4>Messaging</h4><ul><li>One-to-one, group and department-based real-time conversations</li><li>Replies, editing, forwarding and pinning</li><li>Urgent messages, mentions and soft deletion</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.24s;opacity:1;transform:none"><h4>Real-Time</h4><ul><li>Socket.IO for instant message delivery</li><li>Typing indicators and unread updates</li><li>Read receipts per message</li><li>Room-scoped events so clients only receive what is relevant</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.28s;opacity:1;transform:none"><h4>File Sharing</h4><p>Images, video, audio, PDF, <b>DICOM</b>, documents and archives, with in-app previews and authenticated attachment access.</p></div>
+      <div class="tl-blk" style="transition-delay:0.32s;opacity:1;transform:none"><h4>Search &amp; Notifications</h4><ul><li>Conversation and message search with filters</li><li>Shared-file access across a conversation</li><li>In-app notification centre</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.37s;opacity:1;transform:none"><h4>Support Workflow</h4><p>Structured communication between referring physicians and the internal admin team, with ticket status and assignment handling.</p></div>
+      <div class="tl-blk" style="transition-delay:0.42s;opacity:1;transform:none"><h4>Smart Reply</h4><p>On-device NLP engine generating contextual response suggestions. Processing stays <b>entirely in the browser</b>, so patient-adjacent message content never leaves the device.</p></div>
+      <div class="tl-blk" style="transition-delay:0.46s;opacity:1;transform:none"><h4>Architecture</h4><ul><li>Vue 3, TypeScript, Vite and Vue Router on the frontend</li><li>Node.js, TypeScript and Fastify with a modular API</li><li>PostgreSQL with multi-schema, multi-tenant integration</li><li>Session integrated with the host app via Redis rather than a separate auth system</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.51s;opacity:1;transform:none"><h4>Security</h4><ul><li>Server-side authorization on every scoped request</li><li>Role-based confidentiality controls</li><li>Request validation and rate limiting</li><li>Authenticated attachment access</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.55s;opacity:1;transform:none"><h4>Engineering Challenges</h4><ul><li>Resolved internal/external identity collisions where the same numeric ID represented different users across separate tables</li><li>Implemented transactional frozen group snapshots so removed members retain the correct historical group state</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.59s;opacity:1;transform:none"><h4>Technology</h4><div class="tl-stack"><span>Vue 3</span><span>TypeScript</span><span>Node.js</span><span>Fastify</span><span>PostgreSQL</span><span>Socket.IO</span><span>Redis</span><span>nginx</span></div></div>
+          </div>
+        </article>
+      </div>
+      <div class="tl-row reveal-r" id="tlRow1" style="--a:#a78bfa">
+        <div class="tl-spine"><span class="tl-stub"></span><span class="tl-dot"></span></div>
+        <article class="tl-card" id="tlCard1" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View full details: Communication Outbound Service">
+          <span class="tl-num">02</span>
+          <div class="tl-main">
+            <div class="tl-icon"><i class="bi bi-telephone-outbound-fill"></i></div>
+            <div>
+              <h3 class="work-title">Communication Outbound Service</h3>
+              <p class="work-desc">Engineered a C++-based communication service designed to automate report-related communication to doctors and patients — approximately <span class="count-up" data-target="50000">0</span>+ communications per month.</p>
+              <ul class="work-list"><li>Email, SMS &amp; fax delivery</li><li>Multi-tenancy</li><li>Per-customer credential isolation</li><li>Automated notification delivery</li></ul>
+              <div class="tl-footrow">
+                <div class="work-tags"><span>C++</span><span>Multi-tenancy</span><span>Automation</span><span>Enterprise</span></div>
+                <button class="tl-cue" id="tlCue1" aria-haspopup="dialog">
+                  <span class="tl-cue-text">Click for full details</span> <span class="tl-chev">↗</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Full detail. Shown inline when JS is unavailable; the script moves it
+               into the modal instead. Source of truth for the modal content. -->
+          <div class="tl-detail-src">
+      <div class="tl-blk" style="transition-delay:0.10s;opacity:1;transform:none"><h4>Overview</h4><p>C++ background service for automated report-related notifications across the enterprise radiology platform, delivering approved report notifications to doctors and patients <b>without blocking the main application workflow</b>.</p></div>
+      <div class="tl-blk" style="transition-delay:0.15s;opacity:1;transform:none"><h4>Scale</h4><p>Handles approximately <b>50,000+</b> email, SMS and fax communications per month.</p></div>
+      <div class="tl-blk" style="transition-delay:0.19s;opacity:1;transform:none"><h4>Multi-Channel</h4><p>Unified Email, SMS and Fax behind a common queue-driven notification architecture.</p></div>
+      <div class="tl-blk" style="transition-delay:0.24s;opacity:1;transform:none"><h4>Multi-Tenancy</h4><ul><li>Customer-isolated communication workflows</li><li>Dedicated provider credentials per customer</li><li>One customer's flow can never reach another's credentials</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.28s;opacity:1;transform:none"><h4>Queue Processing</h4><ul><li>PostgreSQL-backed notification queues</li><li>Batch processing</li><li>Background worker threads</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.32s;opacity:1;transform:none"><h4>Integrations</h4><ul><li>SendGrid for transactional email, including approved report PDF attachments</li><li>Twilio for SMS</li><li>eFax for automated fax, customer-specific</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.37s;opacity:1;transform:none"><h4>Delivery Tracking</h4><ul><li>Captured provider commitment IDs</li><li>Maintained notification and delivery status across the lifecycle</li><li>HTTPS webhook processing for real-time delivery events</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.42s;opacity:1;transform:none"><h4>Reliability</h4><p>Validation, structured error handling, and recovery for notifications that become stuck mid-processing.</p></div>
+      <div class="tl-blk" style="transition-delay:0.46s;opacity:1;transform:none"><h4>Performance</h4><ul><li>Optimized Base64 conversion, attachment processing, TLS connections, API handling and parallel processing</li><li>100 emails <b>with</b> attachments: 115.29s → <b>15.38s</b> (87% faster, 7.5&times; speedup)</li><li>100 emails <b>without</b> attachments: 49.03s → <b>6.13s</b> (87% faster, 8&times; speedup)</li><li>Throughput raised to ~<b>6.5 mails/sec</b>; 6 workers chosen as the production configuration</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.51s;opacity:1;transform:none"><h4>Database</h4><p>PostgreSQL JSONB data and stored procedures managing the notification lifecycle.</p></div>
+      <div class="tl-blk" style="transition-delay:0.55s;opacity:1;transform:none"><h4>Third-Party Ownership</h4><p>Managed the Twilio, SendGrid and eFax accounts — provider setup, configuration, testing and client-machine deployment.</p></div>
+      <div class="tl-blk" style="transition-delay:0.59s;opacity:1;transform:none"><h4>Testing</h4><p>End-to-end coverage across email, SMS, fax, attachments, provider errors, webhooks and batch processing.</p></div>
+      <div class="tl-blk" style="transition-delay:0.64s;opacity:1;transform:none"><h4>Technology</h4><div class="tl-stack"><span>C++</span><span>PostgreSQL</span><span>SendGrid</span><span>Twilio</span><span>eFax</span><span>HTTPS</span><span>JSON</span><span>REST APIs</span><span>Multithreading</span></div></div>
+          </div>
+        </article>
+      </div>
+      <div class="tl-row reveal-r" id="tlRow2" style="--a:#fbbf24">
+        <div class="tl-spine"><span class="tl-stub"></span><span class="tl-dot"></span></div>
+        <article class="tl-card" id="tlCard2" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View full details: Ubuntu Installer & Deployment Automation">
+          <span class="tl-num">03</span>
+          <div class="tl-main">
+            <div class="tl-icon"><i class="bi bi-terminal-fill"></i></div>
+            <div>
+              <h3 class="work-title">Ubuntu Installer &amp; Deployment Automation</h3>
+              <p class="work-desc">Developed a Shell Script-based Ubuntu installer for client demonstrations and internal deployments, reducing setup from ~6 hours to a single 45-minute run.</p>
+              <ul class="work-list"><li>Dependency resolution</li><li>Configuration</li><li>Database population</li><li>Service provisioning</li></ul>
+              <div class="tl-footrow">
+                <div class="work-tags"><span>Shell Script</span><span>Linux</span><span>Automation</span><span>Deployment</span></div>
+                <button class="tl-cue" id="tlCue2" aria-haspopup="dialog">
+                  <span class="tl-cue-text">Click for full details</span> <span class="tl-chev">↗</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Full detail. Shown inline when JS is unavailable; the script moves it
+               into the modal instead. Source of truth for the modal content. -->
+          <div class="tl-detail-src">
+      <div class="tl-blk" style="transition-delay:0.10s;opacity:1;transform:none"><h4>Overview</h4><p>Developed a Shell Script-based Ubuntu Installer to automate complete environment setup, used across multiple client machine setups and internal deployment environments.</p></div>
+      <div class="tl-blk" style="transition-delay:0.15s;opacity:1;transform:none"><h4>Infrastructure Setup</h4><ul><li>Automated installation of required application prerequisites and dependencies</li><li>Installed and configured PostgreSQL, Redis, Nginx, Node.js, Kafka, and other required components</li><li>Automated OpenResty setup as part of the deployment environment</li><li>Handled installation and configuration of required runtime and infrastructure components</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.19s;opacity:1;transform:none"><h4>Database &amp; Services</h4><ul><li>Automated setup of the enterprise database environment</li><li>Populated the enterprise database with required schemas, data, and application setup</li><li>Automated installation and setup of application services required by the enterprise platform</li><li>Handled installation and startup of Node.js-based services and API services</li><li>Automated service provisioning and ensured required services were started as part of installation</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.24s;opacity:1;transform:none"><h4>Configuration Management</h4><ul><li>Managed application environment variables required across the deployment</li><li>Automated configuration setup for installed services and application components</li><li>Handled service-specific configuration files and deployment parameters</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.28s;opacity:1;transform:none"><h4>Workflow &amp; Impact</h4><ul><li>Coordinated the setup of databases, dependencies, configurations, and services as a single installation workflow</li><li>Reduced the need for repeated manual configuration across different machines</li><li>Made the deployment process more consistent across client and internal environments</li><li>Simplified preparing a machine from a fresh Ubuntu environment to a ready-to-run application environment</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.32s;opacity:1;transform:none"><h4>Outcome</h4><p>Reduced overall deployment effort from approximately <b>6 hours</b> of manual setup to around <b>45 minutes</b> — a reusable solution that streamlined client demonstrations, internal setups, and enterprise application provisioning.</p></div>
+      <div class="tl-blk" style="transition-delay:0.37s;opacity:1;transform:none"><h4>Technology</h4><div class="tl-stack"><span>Shell Script</span><span>Linux</span><span>PostgreSQL</span><span>Redis</span><span>Nginx</span><span>Node.js</span><span>Kafka</span><span>OpenResty</span></div></div>
+          </div>
+        </article>
+      </div>
+      <div class="tl-row reveal-r" id="tlRow3" style="--a:#fb7185">
+        <div class="tl-spine"><span class="tl-stub"></span><span class="tl-dot"></span></div>
+        <article class="tl-card" id="tlCard3" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View full details: Medical Image Enhancement with C++">
+          <span class="tl-num">04</span>
+          <div class="tl-main">
+            <div class="tl-icon"><i class="bi bi-cpu-fill"></i></div>
+            <div>
+              <h3 class="work-title">Medical Image Enhancement with C++</h3>
+              <p class="work-desc">Built a C++-based medical image enhancement module using the CLAHE algorithm.</p>
+              <ul class="work-list"><li>Improving image quality</li><li>Improving output accuracy</li><li>Expanding supported image formats</li><li>Improving processing performance</li></ul>
+              <div class="tl-footrow">
+                <div class="work-tags"><span>C++</span><span>CLAHE</span><span>Image Processing</span><span>R&amp;D</span></div>
+                <button class="tl-cue" id="tlCue3" aria-haspopup="dialog">
+                  <span class="tl-cue-text">Click for full details</span> <span class="tl-chev">↗</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Full detail. Shown inline when JS is unavailable; the script moves it
+               into the modal instead. Source of truth for the modal content. -->
+          <div class="tl-detail-src">
+      <div class="tl-blk" style="transition-delay:0.10s;opacity:1;transform:none"><h4>Overview</h4><p>Worked on improving contrast enhancement for medical and radiology images using C++, evaluating the limitations of the existing implementation.</p></div>
+      <div class="tl-blk" style="transition-delay:0.15s;opacity:1;transform:none"><h4>Existing Limitations</h4><ul><li>Previous approach produced inconsistent and lower-quality results across different images</li><li>Existing processing was relatively slow for practical radiology workflows</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.19s;opacity:1;transform:none"><h4>New Approach</h4><ul><li>Developed a new contrast enhancement approach focused on stability and output quality</li><li>Improved processing speed to make image enhancement more efficient</li><li>Expanded support for a wider range of medical image types and formats</li><li>Improved consistency of enhancement across different image characteristics</li><li>Focused on preserving important image details while improving visual contrast</li><li>Improved the visibility of relevant structures in radiology images</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.24s;opacity:1;transform:none"><h4>Testing &amp; Evaluation</h4><ul><li>Tested the enhancement approach across multiple medical image samples</li><li>Evaluated output quality against the existing implementation</li><li>Compared the new implementation with OpenCV-based image enhancement</li><li>Produced better output quality than the OpenCV comparison in the evaluated cases</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.28s;opacity:1;transform:none"><h4>Integration</h4><ul><li>Made the enhancement suitable for integration into the existing radiology workflow</li><li>Considered different image bit depths and pixel-data representations during implementation</li><li>Integrated the enhancement process with the existing medical image processing pipeline</li><li>Worked with radiology image data including DICOM-based image processing</li></ul></div>
+      <div class="tl-blk" style="transition-delay:0.32s;opacity:1;transform:none"><h4>Outcome</h4><p>Balanced image quality, stability, format support, and processing performance — delivering a faster and more reliable contrast enhancement solution with improved image quality and broader image support.</p></div>
+      <div class="tl-blk" style="transition-delay:0.37s;opacity:1;transform:none"><h4>Technology</h4><div class="tl-stack"><span>C++</span><span>DICOM</span><span>OpenCV</span><span>CLAHE</span><span>Image Processing</span></div></div>
+          </div>
+        </article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -217,12 +373,102 @@
     <div class="sk-top">
       <div class="sk-left">
         <h3 class="sk-label">PROGRAMMING LANGUAGES</h3>
-        <div class="sk-langs" id="skLangs"></div>
+        <div class="sk-langs" id="skLangs">
+        <div class="sk-row">
+          <span class="sk-ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;cpp&#39;]"></span>
+          <span class="sk-head"><span class="sk-nm">C++</span><span class="sk-pct" data-t="88">88%</span></span>
+          <span class="sk-track" style="grid-column:2"><span class="sk-fill" data-v="88"
+            style="background:linear-gradient(90deg,#2DD4BF,#4FE3C6);transition-delay:0.00s"></span></span>
+        </div>
+        <div class="sk-row">
+          <span class="sk-ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;py&#39;]"></span>
+          <span class="sk-head"><span class="sk-nm">Python</span><span class="sk-pct" data-t="72">72%</span></span>
+          <span class="sk-track" style="grid-column:2"><span class="sk-fill" data-v="72"
+            style="background:linear-gradient(90deg,#5B7CFF,#8AA2FF);transition-delay:0.12s"></span></span>
+        </div>
+        <div class="sk-row">
+          <span class="sk-ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;js&#39;]"></span>
+          <span class="sk-head"><span class="sk-nm">JavaScript</span><span class="sk-pct" data-t="78">78%</span></span>
+          <span class="sk-track" style="grid-column:2"><span class="sk-fill" data-v="78"
+            style="background:linear-gradient(90deg,#7C5CFF,#A78BFF);transition-delay:0.24s"></span></span>
+        </div>
+        <div class="sk-row">
+          <span class="sk-ic"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;sql&#39;]"></span>
+          <span class="sk-head"><span class="sk-nm">SQL</span><span class="sk-pct" data-t="80">80%</span></span>
+          <span class="sk-track" style="grid-column:2"><span class="sk-fill" data-v="80"
+            style="background:linear-gradient(90deg,#F5B325,#FFD167);transition-delay:0.36s"></span></span>
+        </div>
+        </div>
       </div>
 
       <div class="sk-gridwrap">
-        <div class="sk-gh"><span class="sk-gh-t">TECH STACK</span><span class="sk-gh-n sk-mono" id="skGcount"></span></div>
-        <div class="sk-igrid" id="skIgrid"></div>
+        <div class="sk-gh"><span class="sk-gh-t">TECH STACK</span><span class="sk-gh-n sk-mono" id="skGcount">20 TECHNOLOGIES</span></div>
+        <div class="sk-igrid" id="skIgrid">
+          <div class="sk-gi" data-k="html"><span class="sk-tip">Markup and structure for every page I build</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;html&#39;]"></span><span class="sk-lb">HTML</span></div>
+          <div class="sk-gi" data-k="css"><span class="sk-tip">Layout, responsive design and styling</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;css&#39;]"></span><span class="sk-lb">CSS</span></div>
+          <div class="sk-gi" data-k="boot"><span class="sk-tip">Component library for quick responsive UI</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;boot&#39;]"></span><span class="sk-lb">Bootstrap</span></div>
+          <div class="sk-gi" data-k="vue"><span class="sk-tip">Frontend framework behind the radiology chat UI</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;vue&#39;]"></span><span class="sk-lb">Vue.js</span></div>
+          <div class="sk-gi" data-k="node"><span class="sk-tip">JavaScript runtime for backend services</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;node&#39;]"></span><span class="sk-lb">Node.js</span></div>
+          <div class="sk-gi" data-k="react"><span class="sk-tip">Frontend library used to build DevInsight</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;react&#39;]"></span><span class="sk-lb">React</span></div>
+          <div class="sk-gi" data-k="fast"><span class="sk-tip">Python framework powering DevInsight's API</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;fast&#39;]"></span><span class="sk-lb">FastAPI</span></div>
+          <div class="sk-gi" data-k="pg"><span class="sk-tip">Primary relational database in production work</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;pg&#39;]"></span><span class="sk-lb">PostgreSQL</span></div>
+          <div class="sk-gi" data-k="sqlite"><span class="sk-tip">Lightweight embedded database for side projects</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;sqlite&#39;]"></span><span class="sk-lb">SQLite</span></div>
+          <div class="sk-gi" data-k="shell"><span class="sk-tip">Automating environment setup and deployment</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;shell&#39;]"></span><span class="sk-lb">Shell</span></div>
+          <div class="sk-gi" data-k="linux"><span class="sk-tip">Daily development and deployment environment</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;linux&#39;]"></span><span class="sk-lb">Linux</span></div>
+          <div class="sk-gi" data-k="git"><span class="sk-tip">Version control across every project</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;git&#39;]"></span><span class="sk-lb">Git</span></div>
+          <div class="sk-gi" data-k="vsc"><span class="sk-tip">Main editor for C++, Python and web work</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;vsc&#39;]"></span><span class="sk-lb">VS Code</span></div>
+          <div class="sk-gi" data-k="socket"><span class="sk-tip">Real-time message transport for live chat</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;socket&#39;]"></span><span class="sk-lb">Socket.IO</span></div>
+          <div class="sk-gi" data-k="twilio"><span class="sk-tip">SMS and fax delivery in the outbound service</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twilio/twilio-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;twilio&#39;]"></span><span class="sk-lb">Twilio</span></div>
+          <div class="sk-gi" data-k="rest"><span class="sk-tip">Designing and consuming HTTP service endpoints</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;rest&#39;]"></span><span class="sk-lb">REST APIs</span></div>
+          <div class="sk-gi" data-k="cpp"><span class="sk-tip">Primary language for enterprise service work</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;cpp&#39;]"></span><span class="sk-lb">C++</span></div>
+          <div class="sk-gi" data-k="py"><span class="sk-tip">Backend services, scripting and tooling</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;py&#39;]"></span><span class="sk-lb">Python</span></div>
+          <div class="sk-gi" data-k="js"><span class="sk-tip">Browser and Node.js development</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;js&#39;]"></span><span class="sk-lb">JavaScript</span></div>
+          <div class="sk-gi" data-k="sql"><span class="sk-tip">Queries, joins and stored procedures</span>
+          <span class="sk-im"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" loading="lazy"
+      onerror="this.parentNode.innerHTML=window.__SK_FB[&#39;sql&#39;]"></span><span class="sk-lb">SQL</span></div>
+        </div>
       </div>
     </div>
 
@@ -231,7 +477,7 @@
         <span class="sk-mqhead-t">EVERYTHING I WORK WITH</span>
         <span class="sk-mqhead-hint sk-mono">HOVER TO PAUSE</span>
       </div>
-      <div class="sk-viewport" id="skVp"><div class="sk-track2" id="skTrack"></div></div>
+      <div class="sk-viewport" id="skVp"><div class="sk-track2" id="skTrack"><span class="sk-item" data-k="html">HTML</span><span class="sk-item" data-k="css">CSS</span><span class="sk-item" data-k="boot">Bootstrap</span><span class="sk-item" data-k="vue">Vue.js</span><span class="sk-item" data-k="node">Node.js</span><span class="sk-item" data-k="react">React</span><span class="sk-item" data-k="fast">FastAPI</span><span class="sk-item" data-k="pg">PostgreSQL</span><span class="sk-item" data-k="sqlite">SQLite</span><span class="sk-item" data-k="shell">Shell</span><span class="sk-item" data-k="linux">Linux</span><span class="sk-item" data-k="git">Git</span><span class="sk-item" data-k="vsc">VS Code</span><span class="sk-item" data-k="socket">Socket.IO</span><span class="sk-item" data-k="twilio">Twilio</span><span class="sk-item" data-k="rest">REST APIs</span><span class="sk-item" data-k="cpp">C++</span><span class="sk-item" data-k="py">Python</span><span class="sk-item" data-k="js">JavaScript</span><span class="sk-item" data-k="sql">SQL</span><span class="sk-item" data-k="html">HTML</span><span class="sk-item" data-k="css">CSS</span><span class="sk-item" data-k="boot">Bootstrap</span><span class="sk-item" data-k="vue">Vue.js</span><span class="sk-item" data-k="node">Node.js</span><span class="sk-item" data-k="react">React</span><span class="sk-item" data-k="fast">FastAPI</span><span class="sk-item" data-k="pg">PostgreSQL</span><span class="sk-item" data-k="sqlite">SQLite</span><span class="sk-item" data-k="shell">Shell</span><span class="sk-item" data-k="linux">Linux</span><span class="sk-item" data-k="git">Git</span><span class="sk-item" data-k="vsc">VS Code</span><span class="sk-item" data-k="socket">Socket.IO</span><span class="sk-item" data-k="twilio">Twilio</span><span class="sk-item" data-k="rest">REST APIs</span><span class="sk-item" data-k="cpp">C++</span><span class="sk-item" data-k="py">Python</span><span class="sk-item" data-k="js">JavaScript</span><span class="sk-item" data-k="sql">SQL</span></div></div>
     </div>
   </div>
 </section>
@@ -254,9 +500,9 @@
           <h3 class="proj-name">DevInsight — AI Developer Career Analyzer</h3>
           <p class="proj-desc">An AI-powered career analysis platform that evaluates resumes, GitHub profiles, and portfolios to generate personalized insights, identify strengths and improvement areas, highlight potential gaps, and provide actionable guidance for developers.</p>
           <div class="proj-stack">
-            <img src="https://img.icons8.com/?size=50&id=13441&format=png" alt="Python"/>
-            <span class="stack-text">React</span>
-            <span class="stack-text">FastAPI</span>
+            <span class="stack-text"><img src="img/icon-python.png" alt="" width="18" height="18" loading="lazy"/>Python</span>
+            <span class="stack-text"><img src="img/icon-react.svg" alt="" width="18" height="18" loading="lazy"/>React</span>
+            <span class="stack-text"><img src="img/icon-fastapi.svg" alt="" width="18" height="18" loading="lazy"/>FastAPI</span>
           </div>
           <div class="proj-links">
             <a href="https://devinsight-gamma.vercel.app" target="_blank" class="proj-link"><span>View Live</span> <i class="bi bi-arrow-up-right"></i></a>
@@ -274,14 +520,14 @@
           <h3 class="proj-name">KickArt — E-Commerce Shoe Store</h3>
           <p class="proj-desc">An e-commerce platform for discovering and purchasing shoes, featuring a dynamic product catalog, user authentication, product browsing, shopping workflows, CRUD operations, and a responsive interface designed for an engaging online shopping experience.</p>
           <div class="proj-stack">
-            <img src="https://img.icons8.com/?size=50&id=20909&format=png" alt="HTML"/>
-            <img src="https://img.icons8.com/?size=50&id=laVIsJnTtYoj&format=png" alt="JS"/>
-            <img src="https://img.icons8.com/?size=50&id=qc3TyHJPxEoH&format=png" alt="Django"/>
-            <img src="https://img.icons8.com/?size=50&id=cdYUlRaag9G9&format=png" alt="SQLite"/>
+            <span class="stack-text"><img src="img/icon-html.png" alt="" width="18" height="18" loading="lazy"/>HTML</span>
+            <span class="stack-text"><img src="img/icon-js.png" alt="" width="18" height="18" loading="lazy"/>JavaScript</span>
+            <span class="stack-text"><img src="img/icon-django.png" alt="" width="18" height="18" loading="lazy"/>Django</span>
+            <span class="stack-text"><img src="img/icon-sqlite.png" alt="" width="18" height="18" loading="lazy"/>SQLite</span>
           </div>
           <div class="proj-links">
             <a href="https://vigneshkrish.pythonanywhere.com/" target="_blank" class="proj-link"><span>View Live</span> <i class="bi bi-arrow-up-right"></i></a>
-            <a href="https://github.com/vignesh-krish-dev" target="_blank" class="proj-link-ghost"><i class="bi bi-github"></i> GitHub</a>
+            <a href="https://github.com/vignesh-krish-dev/kickart" target="_blank" class="proj-link-ghost"><i class="bi bi-github"></i> GitHub</a>
           </div>
         </div>
       </div>
@@ -295,13 +541,13 @@
           <h3 class="proj-name">YouTube Clone</h3>
           <p class="proj-desc">A responsive video-streaming interface inspired by YouTube, featuring video discovery, search and navigation, dynamic content rendering, category-based browsing, interactive UI components, and a familiar viewing experience across different screen sizes.</p>
           <div class="proj-stack">
-            <img src="https://img.icons8.com/?size=50&id=20909&format=png" alt="HTML"/>
-            <img src="https://img.icons8.com/?size=50&id=21278&format=png" alt="CSS"/>
-            <img src="https://img.icons8.com/?size=50&id=laVIsJnTtYoj&format=png" alt="JS"/>
+            <span class="stack-text"><img src="img/icon-html.png" alt="" width="18" height="18" loading="lazy"/>HTML</span>
+            <span class="stack-text"><img src="img/icon-css.png" alt="" width="18" height="18" loading="lazy"/>CSS</span>
+            <span class="stack-text"><img src="img/icon-js.png" alt="" width="18" height="18" loading="lazy"/>JavaScript</span>
           </div>
           <div class="proj-links">
             <a href="https://vignesh-krish-dev.github.io/youtube-clone/" target="_blank" class="proj-link"><span>View Live</span> <i class="bi bi-arrow-up-right"></i></a>
-            <a href="https://github.com/vignesh-krish-dev" target="_blank" class="proj-link-ghost"><i class="bi bi-github"></i> GitHub</a>
+            <a href="https://github.com/vignesh-krish-dev/youtube-clone" target="_blank" class="proj-link-ghost"><i class="bi bi-github"></i> GitHub</a>
           </div>
         </div>
       </div>
@@ -450,13 +696,16 @@
       </linearGradient>
     </defs></svg>
 
+    <!-- announces a successful copy to screen readers; empty until then -->
+    <p class="ct-sr-live" id="ctLive" role="status" aria-live="polite"></p>
+
     <div class="ct-row">
       <button class="ct-ch" type="button" data-copy="vigneshkrishnan093@gmail.com">
         <span class="ct-ico"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></span>
         <span class="ct-txt"><span class="ct-k">EMAIL</span><span class="ct-v ct-sm">vigneshkrishnan093@gmail.com</span></span>
         <span class="ct-act"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11.5" height="11.5" rx="2"/><path d="M15 5.5H5.5A1.5 1.5 0 0 0 4 7v9"/></svg></span>
         <svg class="ct-draw" aria-hidden="true"><rect pathLength="100"/></svg>
-        <span class="ct-copied">✓ Copied</span>
+        <span class="ct-copied" aria-hidden="true">✓ Copied</span>
       </button>
 
       <button class="ct-ch" type="button" data-copy="+91 9360201711">
@@ -464,7 +713,7 @@
         <span class="ct-txt"><span class="ct-k">PHONE</span><span class="ct-v">+91 9360201711</span></span>
         <span class="ct-act"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11.5" height="11.5" rx="2"/><path d="M15 5.5H5.5A1.5 1.5 0 0 0 4 7v9"/></svg></span>
         <svg class="ct-draw" aria-hidden="true"><rect pathLength="100"/></svg>
-        <span class="ct-copied">✓ Copied</span>
+        <span class="ct-copied" aria-hidden="true">✓ Copied</span>
       </button>
 
       <a class="ct-ch" href="https://linkedin.com/in/vignesh-krish-dev" target="_blank" rel="noopener">

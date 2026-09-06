@@ -11,6 +11,14 @@ document.querySelectorAll('.ct-ch[data-copy]').forEach(btn=>{
       ta.remove();
     }
     btn.classList.add('ct-done');
+    // the visual "Copied" badge is aria-hidden, so announce it here instead
+    const live = document.getElementById('ctLive');
+    if(live){
+      const what = (btn.querySelector('.ct-k')||{}).textContent || 'Value';
+      live.textContent = what.trim() + ' copied to clipboard';
+      clearTimeout(btn._lt);
+      btn._lt = setTimeout(()=>{ live.textContent = ''; }, 2000);
+    }
     clearTimeout(btn._t);
     btn._t=setTimeout(()=>btn.classList.remove('ct-done'),1300);
   });

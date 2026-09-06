@@ -324,3 +324,13 @@
 @media(max-width:1023px){
   .tl-cue{min-height:44px;display:inline-flex;align-items:center}
 }
+
+/* ─── PROGRESSIVE ENHANCEMENT ───
+   .tl-detail-src holds each card's full write-up as real markup so the content
+   exists without JavaScript. When JS runs it is copied into the modal instead,
+   so it is hidden — but only once we know JS is available. */
+.js .tl-detail-src{display:none}
+.tl-detail-src{
+  margin-top:18px;padding-top:16px;
+  border-top:1px solid var(--cbr);
+}
